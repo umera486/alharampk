@@ -190,7 +190,7 @@
     font-family: var(--font-display);
     font-variation-settings: "opsz" 96, "WONK" 1;
     letter-spacing: -0.03em;
-    line-height: 0.95;
+    line-height: 1.02;
   }
 
   ::selection {
@@ -278,7 +278,7 @@
   font-weight: 700;
   font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
   font-size: clamp(2.9rem, 9.2vw, 8.5rem);
-  line-height: 0.86;
+  line-height: 0.95;
   letter-spacing: -0.045em;
 }
 
@@ -287,7 +287,7 @@
   font-weight: 700;
   font-variation-settings: "opsz" 120, "WONK" 1;
   font-size: clamp(2.1rem, 5vw, 4rem);
-  line-height: 0.94;
+  line-height: 1.02;
   letter-spacing: -0.04em;
 }
 
