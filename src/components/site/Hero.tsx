@@ -118,7 +118,7 @@ export function Hero() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 to="/"
-                className="group bg-primary text-primary-foreground hover:shadow-ember-lg inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold tracking-wide transition-all duration-500 hover:-translate-y-1"
+                className="group surface-crimson text-white hover:shadow-ember-lg inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold tracking-wide transition-all duration-500 hover:-translate-y-1"
               >
                 Shop the aisles
                 <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-1" />

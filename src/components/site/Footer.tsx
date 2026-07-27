@@ -12,7 +12,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_2fr]">
           <div>
-            <span className="font-display text-2xl font-semibold tracking-tight">ALHARAM</span>
+            <span className="font-display text-crimson-gradient text-3xl font-semibold tracking-[-0.02em]">ALHARAM</span>
             <span className="mt-1 block text-[10px] tracking-[0.32em] uppercase opacity-60">
               Cash &amp; Carry
             </span>
@@ -20,7 +20,7 @@ export function Footer() {
               A thousand-plus lines under one roof, delivered anywhere inside five kilometres. Open
               seven days, 7am–10pm.
             </p>
-            <div className="mt-8 h-px w-24 gold-rule" />
+            <div className="mt-8 h-px w-24 crimson-rule" />
           </div>
 
           <div className="grid gap-10 sm:grid-cols-3">

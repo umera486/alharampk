@@ -55,7 +55,7 @@ export function DeliveryCTA() {
           />
           <button
             type="submit"
-            className="group bg-primary text-primary-foreground inline-flex h-14 items-center justify-center gap-2 rounded-full px-7 text-sm font-semibold tracking-wide transition-transform duration-500 hover:-translate-y-0.5"
+            className="group surface-crimson text-white shadow-ember inline-flex h-14 items-center justify-center gap-2 rounded-full px-7 text-sm font-semibold tracking-wide transition-transform duration-500 hover:-translate-y-0.5"
           >
             Check
             <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-1" />
