@@ -17,7 +17,7 @@ export function DeliveryCTA() {
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="border-border shadow-ember relative overflow-hidden rounded-[2px] border px-8 py-16 text-center md:px-16 md:py-24"
       >
-        <span aria-hidden="true" className="absolute inset-x-0 top-0 gold-rule" />
+        <span aria-hidden="true" className="absolute inset-x-0 top-0 crimson-rule" />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -bottom-40 left-1/2 size-[560px] -translate-x-1/2 rounded-full opacity-[0.14] blur-[110px]"
@@ -30,7 +30,7 @@ export function DeliveryCTA() {
           className="relative mx-auto mt-5 max-w-3xl display-lg"
         >
           Find out if you&apos;re inside the{" "}
-          <span className="text-gold-gradient">Meridian ring.</span>
+          <span className="text-crimson-gradient">Alharam ring.</span>
         </h2>
 
         <form
@@ -55,7 +55,7 @@ export function DeliveryCTA() {
           />
           <button
             type="submit"
-            className="group bg-primary text-primary-foreground inline-flex h-14 items-center justify-center gap-2 rounded-full px-7 text-sm font-semibold tracking-wide transition-transform duration-500 hover:-translate-y-0.5"
+            className="group surface-crimson text-white shadow-ember inline-flex h-14 items-center justify-center gap-2 rounded-full px-7 text-sm font-semibold tracking-wide transition-transform duration-500 hover:-translate-y-0.5"
           >
             Check
             <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-1" />

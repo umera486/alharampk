@@ -49,7 +49,7 @@ export function Manifesto() {
 
       <div className="relative mx-auto max-w-[1180px] px-5 sm:px-6">
         <p className="eyebrow">The house standard</p>
-        <span data-rule aria-hidden="true" className="mt-5 block origin-left scale-x-0 gold-rule" />
+        <span data-rule aria-hidden="true" className="mt-5 block origin-left scale-x-0 crimson-rule" />
 
         <p className="font-display mt-9 text-[clamp(1.6rem,4.6vw,3.4rem)] leading-[1.06] font-semibold tracking-[-0.035em]">
           {LINE.split(" ").map((w, i) => (

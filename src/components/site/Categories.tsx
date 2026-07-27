@@ -19,7 +19,7 @@ export function Categories() {
             id="aisles-title"
             className="mt-4 display-lg"
           >
-            Eleven departments. <span className="text-gold-gradient">One receipt.</span>
+            Eleven departments. <span className="text-crimson-gradient">One receipt.</span>
           </h2>
         </div>
         <p className="text-muted-foreground max-w-sm text-[15px] leading-relaxed">

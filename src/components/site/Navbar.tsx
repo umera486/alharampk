@@ -35,13 +35,13 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Utility strip */}
-      <div className="hidden border-b border-border/60 bg-primary text-primary-foreground md:block">
+      <div className="surface-crimson hidden text-white md:block">
         <div className="mx-auto flex h-9 max-w-[1400px] items-center justify-between px-6 text-[11px] tracking-[0.18em] uppercase">
           <span className="flex items-center gap-2 opacity-80">
             <MapPin className="size-3.5" aria-hidden="true" />
             Same-day delivery within a 5&nbsp;km radius
           </span>
-          <span className="text-gold-gradient font-semibold">1,000+ curated items in store</span>
+          <span className="font-semibold text-white/95">1,000+ curated items in store</span>
         </div>
       </div>
 
@@ -59,15 +59,17 @@ export function Navbar() {
           className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-6"
         >
           <Link to="/" className="group flex items-center gap-3">
-            <span className="relative grid size-9 place-items-center overflow-hidden rounded-sm bg-primary">
-              <span className="font-display text-primary-foreground text-sm font-bold">M</span>
+            <span className="surface-crimson shadow-ember relative grid size-10 place-items-center overflow-hidden rounded-sm">
+              <span className="font-display text-[17px] leading-none font-semibold text-white">
+                A
+              </span>
               <span className="absolute inset-x-0 bottom-0 h-[2px] gold-rule" />
             </span>
             <span className="leading-none">
-              <span className="font-display block text-[15px] font-semibold tracking-tight">
-                MERIDIAN
+              <span className="font-display block text-[19px] font-semibold tracking-[-0.02em]">
+                ALHARAM
               </span>
-              <span className="text-muted-foreground block text-[10px] tracking-[0.32em] uppercase">
+              <span className="text-ember/80 block text-[9px] font-bold tracking-[0.34em] uppercase">
                 Cash &amp; Carry
               </span>
             </span>
@@ -104,7 +106,7 @@ export function Navbar() {
             </button>
             <Link
               to="/"
-              className="bg-primary text-primary-foreground hover:shadow-ember ml-2 hidden rounded-full px-5 py-2.5 text-[13px] font-semibold tracking-wide transition-all duration-500 hover:-translate-y-0.5 sm:inline-flex"
+              className="surface-crimson text-white hover:shadow-ember-lg ml-2 hidden rounded-full px-5 py-2.5 text-[13px] font-semibold tracking-wide transition-all duration-500 hover:-translate-y-0.5 sm:inline-flex"
             >
               Check delivery
             </Link>

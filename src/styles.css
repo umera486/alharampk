@@ -13,7 +13,7 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
@@ -93,7 +93,7 @@
 
   --border: oklch(0.9 0.003 90);
   --input: oklch(0.9 0.003 90);
-  --ring: oklch(0.79 0.125 87);
+  --ring: oklch(0.57 0.22 27);
 
   --chart-1: oklch(0.79 0.125 87);
   --chart-2: oklch(0.57 0.22 27);
@@ -119,11 +119,19 @@
     var(--gold-soft) 100%
   );
   --gradient-ember: linear-gradient(135deg, var(--ember) 0%, var(--ember-deep) 100%);
+  --gradient-crimson: linear-gradient(
+    100deg,
+    oklch(0.62 0.23 30) 0%,
+    var(--ember) 34%,
+    var(--ember-deep) 68%,
+    oklch(0.6 0.22 32) 100%
+  );
   --gradient-ink: linear-gradient(165deg, oklch(0.2 0.008 40) 0%, oklch(0.09 0.006 40) 100%);
   --gradient-ember-wash: radial-gradient(
-    120% 90% at 50% 0%,
-    color-mix(in oklab, var(--ember) 14%, transparent) 0%,
-    transparent 62%
+    120% 95% at 50% 0%,
+    color-mix(in oklab, var(--ember) 22%, transparent) 0%,
+    color-mix(in oklab, var(--gold) 9%, transparent) 34%,
+    transparent 68%
   );
 
   --shadow-ember: 0 24px 70px -38px color-mix(in oklab, var(--ember) 62%, transparent);
@@ -180,13 +188,14 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.035em;
-    line-height: 0.95;
+    font-variation-settings: "opsz" 96, "WONK" 1;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
   }
 
   ::selection {
-    background: var(--gold);
-    color: var(--gold-foreground);
+    background: var(--ember);
+    color: oklch(0.99 0.001 100);
   }
 }
 
@@ -194,6 +203,23 @@
   background-image: var(--gradient-gold);
   background-clip: text;
   color: transparent;
+}
+
+@utility text-crimson-gradient {
+  background-image: var(--gradient-crimson);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility surface-crimson {
+  background-image: var(--gradient-crimson);
+  color: oklch(0.99 0.001 100);
+}
+
+@utility crimson-rule {
+  background-image: var(--gradient-crimson);
+  height: 1px;
+  width: 100%;
 }
 
 @utility text-ember-gradient {
@@ -249,17 +275,19 @@
 
 @utility display-xl {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
+  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
   font-size: clamp(2.9rem, 9.2vw, 8.5rem);
-  line-height: 0.86;
+  line-height: 0.95;
   letter-spacing: -0.045em;
 }
 
 @utility display-lg {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
+  font-variation-settings: "opsz" 120, "WONK" 1;
   font-size: clamp(2.1rem, 5vw, 4rem);
-  line-height: 0.94;
+  line-height: 1.02;
   letter-spacing: -0.04em;
 }
 
