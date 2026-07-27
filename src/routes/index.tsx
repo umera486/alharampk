@@ -1,24 +1,51 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { Marquee } from "@/components/site/Marquee";
+import { Categories } from "@/components/site/Categories";
+import { ProductCarousel } from "@/components/site/ProductCarousel";
+import { Features } from "@/components/site/Features";
+import { DeliveryRadius } from "@/components/site/DeliveryRadius";
+import { Testimonials } from "@/components/site/Testimonials";
+import { DeliveryCTA } from "@/components/site/DeliveryCTA";
+import { Footer } from "@/components/site/Footer";
+import { SmoothScroll } from "@/components/site/SmoothScroll";
+
+const TITLE = "Meridian Cash & Carry — 1,000+ Lines, 5 km Delivery";
+const DESCRIPTION =
+  "A flagship cash & carry with 1,000+ curated grocery lines at trade prices, delivered to any address within 5 km in 90-minute windows.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <SmoothScroll />
+      <Navbar />
+      <main>
+        <Hero />
+        <Marquee />
+        <Categories />
+        <ProductCarousel />
+        <Features />
+        <DeliveryRadius />
+        <Testimonials />
+        <DeliveryCTA />
+      </main>
+      <Footer />
+    </>
   );
 }
