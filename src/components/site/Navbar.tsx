@@ -59,15 +59,17 @@ export function Navbar() {
           className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-6"
         >
           <Link to="/" className="group flex items-center gap-3">
-            <span className="relative grid size-9 place-items-center overflow-hidden rounded-sm bg-primary">
-              <span className="font-display text-primary-foreground text-sm font-bold">M</span>
-              <span className="absolute inset-x-0 bottom-0 h-[2px] crimson-rule" />
+            <span className="surface-crimson shadow-ember relative grid size-10 place-items-center overflow-hidden rounded-sm">
+              <span className="font-display text-[17px] leading-none font-semibold text-white">
+                A
+              </span>
+              <span className="absolute inset-x-0 bottom-0 h-[2px] gold-rule" />
             </span>
             <span className="leading-none">
-              <span className="font-display block text-[15px] font-semibold tracking-tight">
+              <span className="font-display block text-[19px] font-semibold tracking-[-0.02em]">
                 ALHARAM
               </span>
-              <span className="text-muted-foreground block text-[10px] tracking-[0.32em] uppercase">
+              <span className="text-ember/80 block text-[9px] font-bold tracking-[0.34em] uppercase">
                 Cash &amp; Carry
               </span>
             </span>
