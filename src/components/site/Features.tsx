@@ -26,12 +26,12 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <section className="mx-auto max-w-[1400px] px-6 py-24 md:py-32" aria-labelledby="why-title">
+    <section className="mx-auto max-w-[1400px] px-5 sm:px-6 py-24 md:py-32" aria-labelledby="why-title">
       <Reveal className="max-w-3xl">
         <p className="eyebrow">Why Meridian</p>
         <h2
           id="why-title"
-          className="mt-4 text-[clamp(2rem,4vw,3.25rem)] leading-[1.02] font-semibold"
+          className="mt-4 display-lg"
         >
           Built for people who buy <span className="text-gold-gradient">seriously.</span>
         </h2>

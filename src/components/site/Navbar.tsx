@@ -130,7 +130,7 @@ export function Navbar() {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="bg-background/98 border-border border-b backdrop-blur-xl lg:hidden"
           >
-            <ul className="mx-auto max-w-[1400px] px-6 py-6">
+            <ul className="mx-auto max-w-[1400px] px-5 sm:px-6 py-6">
               {LINKS.map((link, i) => (
                 <motion.li
                   key={link.label}

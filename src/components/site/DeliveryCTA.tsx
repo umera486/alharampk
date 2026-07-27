@@ -9,7 +9,7 @@ export function DeliveryCTA() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section className="mx-auto max-w-[1400px] px-6 pb-24 md:pb-32" aria-labelledby="cta-title">
+    <section className="mx-auto max-w-[1400px] px-5 sm:px-6 pb-24 md:pb-32" aria-labelledby="cta-title">
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ export function DeliveryCTA() {
         <p className="eyebrow relative">Start your first order</p>
         <h2
           id="cta-title"
-          className="relative mx-auto mt-5 max-w-3xl text-[clamp(2rem,4.4vw,3.5rem)] leading-[1.02] font-semibold"
+          className="relative mx-auto mt-5 max-w-3xl display-lg"
         >
           Find out if you&apos;re inside the{" "}
           <span className="text-gold-gradient">Meridian ring.</span>

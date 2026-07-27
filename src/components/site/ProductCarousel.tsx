@@ -59,13 +59,13 @@ export function ProductCarousel() {
       aria-labelledby="deals-title"
       data-lenis-prevent
     >
-      <div className="mx-auto max-w-[1400px] px-6">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="eyebrow">This week on the floor</p>
             <h2
               id="deals-title"
-              className="mt-4 text-[clamp(2rem,4vw,3.25rem)] leading-[1.02] font-semibold"
+              className="mt-4 display-lg"
             >
               Trade prices, <span className="text-gold-gradient">flagship quality</span>
             </h2>
