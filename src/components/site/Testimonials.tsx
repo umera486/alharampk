@@ -24,12 +24,12 @@ const QUOTES = [
 
 export function Testimonials() {
   return (
-    <section className="mx-auto max-w-[1400px] px-6 py-24 md:py-32" aria-labelledby="voices-title">
+    <section className="mx-auto max-w-[1400px] px-5 sm:px-6 py-24 md:py-32" aria-labelledby="voices-title">
       <Reveal className="max-w-2xl">
         <p className="eyebrow">Trade &amp; table</p>
         <h2
           id="voices-title"
-          className="mt-4 text-[clamp(2rem,4vw,3.25rem)] leading-[1.02] font-semibold"
+          className="mt-4 display-lg"
         >
           Trusted by kitchens, <span className="text-gold-gradient">offices and households.</span>
         </h2>

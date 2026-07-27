@@ -9,7 +9,7 @@ const COLUMNS = [
 export function Footer() {
   return (
     <footer className="surface-ink">
-      <div className="mx-auto max-w-[1400px] px-6 py-20">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <span className="font-display text-2xl font-semibold tracking-tight">MERIDIAN</span>

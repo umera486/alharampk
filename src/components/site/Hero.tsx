@@ -1,184 +1,204 @@
 "use client";
 
-import { useRef } from "react";
 import { Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+import { gsap } from "gsap";
 import { ArrowRight, Truck, Clock, ShieldCheck } from "lucide-react";
+import { useGsap } from "./useGsap";
 
 const STATS = [
-  { value: "1,000+", label: "Curated SKUs" },
-  { value: "5 km", label: "Delivery radius" },
+  { value: "1,000+", label: "Lines in store" },
+  { value: "5 km", label: "Delivery ring" },
   { value: "90 min", label: "Doorstep window" },
 ];
 
+const HEADLINE = [
+  { text: "A THOUSAND", accent: false },
+  { text: "AISLES.", accent: false },
+  { text: "ONE", accent: false },
+  { text: "RECEIPT.", accent: true },
+];
+
 export function Hero() {
-  const ref = useRef<HTMLElement | null>(null);
   const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const cardY = useTransform(scrollYProgress, [0, 1], ["0%", "-26%"]);
-  const copyY = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
-  const fade = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+  const ref = useGsap<HTMLElement>((el) => {
+    const q = gsap.utils.selector(el);
 
-  const word = {
-    hidden: { opacity: 0, y: "0.9em" },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1, delay: 0.15 + i * 0.07, ease: [0.22, 1, 0.36, 1] as const },
-    }),
-  };
+    gsap.to(q("[data-parallax='image']"), {
+      yPercent: 16,
+      ease: "none",
+      scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: 0.6 },
+    });
 
-  const headline = ["Wholesale", "abundance,", "boutique", "precision."];
+    gsap.to(q("[data-parallax='card']"), {
+      yPercent: -30,
+      ease: "none",
+      scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: 0.6 },
+    });
+
+    gsap.to(q("[data-parallax='copy']"), {
+      yPercent: -12,
+      opacity: 0.25,
+      ease: "none",
+      scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: 0.6 },
+    });
+
+    gsap.to(q("[data-parallax='glow']"), {
+      yPercent: 24,
+      ease: "none",
+      scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: 1 },
+    });
+  }, []);
 
   return (
-    <section ref={ref} className="relative overflow-hidden pt-[104px] md:pt-[124px]">
-      {/* Ambient ember depth */}
+    <section ref={ref} className="surface-ember-wash relative overflow-hidden">
+      {/* Hairline grid + ambient depth */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 -right-32 size-[620px] rounded-full opacity-[0.16] blur-[120px]"
+        className="hairline-grid pointer-events-none absolute inset-0 opacity-[0.5] [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]"
+      />
+      <div
+        data-parallax="glow"
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-32 -right-24 size-[460px] rounded-full opacity-25 blur-[110px] md:size-[680px]"
         style={{ background: "radial-gradient(circle, var(--ember), transparent 65%)" }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/3 -left-40 size-[520px] rounded-full opacity-[0.2] blur-[130px]"
-        style={{ background: "radial-gradient(circle, var(--gold), transparent 65%)" }}
+        className="pointer-events-none absolute top-1/2 -left-32 size-[380px] rounded-full opacity-30 blur-[120px] md:size-[560px]"
+        style={{ background: "radial-gradient(circle, var(--gold), transparent 66%)" }}
       />
 
-      <div className="mx-auto grid max-w-[1400px] items-center gap-14 px-6 pt-10 pb-20 lg:grid-cols-[1.05fr_1fr] lg:pt-16 lg:pb-28">
-        <motion.div style={reduced ? undefined : { y: copyY, opacity: fade }}>
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="border-border bg-card inline-flex items-center gap-2 rounded-full border px-4 py-1.5"
-          >
-            <span className="bg-ember size-1.5 rounded-full" />
-            <span className="eyebrow !text-foreground">Est. 1998 · Members &amp; trade welcome</span>
-          </motion.span>
+      <div className="relative mx-auto max-w-[1400px] px-5 pt-[124px] pb-16 sm:px-6 md:pt-[168px] md:pb-24">
+        <motion.div
+          initial={reduced ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="border-border/80 bg-card/70 inline-flex items-center gap-2.5 rounded-full border px-4 py-2 backdrop-blur-sm"
+        >
+          <span className="relative flex size-1.5">
+            <span className="bg-ember absolute inline-flex size-full animate-ping rounded-full opacity-60" />
+            <span className="bg-ember relative inline-flex size-1.5 rounded-full" />
+          </span>
+          <span className="eyebrow !text-foreground !text-[9px] sm:!text-[10px]">
+            Open 7 days · 7am–10pm · Trade &amp; retail
+          </span>
+        </motion.div>
 
-          <h1 className="mt-7 text-[clamp(2.75rem,6.4vw,5.25rem)] leading-[0.94] font-semibold">
-            {headline.map((w, i) => (
-              <span key={w} className="inline-block overflow-hidden pr-[0.24em] align-bottom">
+        <div data-parallax="copy" className="mt-8 md:mt-12">
+          <h1 className="display-xl">
+            {HEADLINE.map((w, i) => (
+              <span key={w.text} className="block overflow-hidden">
                 <motion.span
-                  className={i === 3 ? "text-gold-gradient inline-block" : "inline-block"}
-                  custom={i}
-                  variants={word}
-                  initial={reduced ? undefined : "hidden"}
-                  animate="visible"
+                  className={`block ${w.accent ? "text-gold-gradient" : ""}`}
+                  initial={reduced ? false : { y: "105%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 1.15, delay: 0.12 + i * 0.09, ease: [0.19, 1, 0.22, 1] }}
                 >
-                  {w}
+                  {w.text}
                 </motion.span>
               </span>
             ))}
           </h1>
+        </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
+        <div className="mt-10 grid gap-10 md:mt-14 lg:grid-cols-[1fr_1.15fr] lg:items-end">
+          <motion.div
+            initial={reduced ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="text-muted-foreground mt-7 max-w-xl text-[17px] leading-relaxed"
           >
-            A thousand-plus pantry, fresh and household lines under one roof — priced at cash &amp;
-            carry, presented like a flagship. Order before noon and we deliver anywhere inside our
-            5&nbsp;kilometre ring.
-          </motion.p>
+            <p className="text-muted-foreground max-w-lg text-[15px] leading-relaxed sm:text-[17px]">
+              Meridian is a cash &amp; carry built like a flagship. Over a thousand pantry, fresh
+              and household lines at trade prices — and a delivery fleet that runs tight loops
+              inside a five kilometre ring.
+            </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.68, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex flex-wrap items-center gap-3"
-          >
-            <Link
-              to="/"
-              className="group bg-primary text-primary-foreground hover:shadow-ember-lg inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-semibold tracking-wide transition-all duration-500 hover:-translate-y-1"
-            >
-              Shop the aisles
-              <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-1" />
-            </Link>
-            <Link
-              to="/"
-              className="border-border hover:border-foreground/40 hover:bg-secondary inline-flex items-center gap-2 rounded-full border px-7 py-4 text-sm font-semibold tracking-wide transition-all duration-500"
-            >
-              Check my postcode
-            </Link>
-          </motion.div>
-
-          <motion.dl
-            initial="hidden"
-            animate="visible"
-            variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 0.85 } } }}
-            className="border-border mt-14 grid max-w-lg grid-cols-3 gap-6 border-t pt-8"
-          >
-            {STATS.map((s) => (
-              <motion.div
-                key={s.label}
-                variants={{
-                  hidden: { opacity: 0, y: 14 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-                  },
-                }}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                to="/"
+                className="group bg-primary text-primary-foreground hover:shadow-ember-lg inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold tracking-wide transition-all duration-500 hover:-translate-y-1"
               >
-                <dt className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
-                  {s.value}
-                </dt>
-                <dd className="text-muted-foreground mt-1 text-[11px] tracking-[0.18em] uppercase">
-                  {s.label}
-                </dd>
-              </motion.div>
-            ))}
-          </motion.dl>
-        </motion.div>
+                Shop the aisles
+                <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-1" />
+              </Link>
+              <Link
+                to="/"
+                className="border-border hover:border-foreground/40 hover:bg-secondary inline-flex items-center justify-center gap-2 rounded-full border px-7 py-4 text-sm font-semibold tracking-wide transition-all duration-500"
+              >
+                Check my postcode
+              </Link>
+            </div>
 
-        {/* Visual column */}
-        <motion.div
-          initial={reduced ? false : { opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative"
-        >
-          <div className="shadow-ember-lg relative aspect-[4/5] overflow-hidden rounded-[2px] sm:aspect-[5/6]">
-            <motion.img
-              src=""
-              alt="Meridian Cash & Carry flagship floor"
-              style={reduced ? undefined : { y: imageY, scale: 1.18 }}
-              className="bg-secondary size-full object-cover"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to top, color-mix(in oklab, var(--ember) 22%, transparent), transparent 55%)",
-              }}
-            />
-            <span className="absolute inset-x-0 top-0 h-[3px] gold-rule" />
-          </div>
-
-          <motion.div
-            style={reduced ? undefined : { y: cardY }}
-            className="bg-card border-border shadow-elevated absolute -bottom-8 -left-4 w-[min(320px,86%)] rounded-[2px] border p-6 lg:-left-14"
-          >
-            <p className="eyebrow">Delivery promise</p>
-            <ul className="mt-4 space-y-3.5">
-              {[
-                { icon: Truck, text: "Free above ₹2,000 inside 5 km" },
-                { icon: Clock, text: "90-minute doorstep windows" },
-                { icon: ShieldCheck, text: "Cold-chain sealed, always" },
-              ].map(({ icon: Icon, text }) => (
-                <li key={text} className="flex items-start gap-3 text-[13px] leading-snug">
-                  <Icon className="text-gold mt-px size-4 shrink-0" aria-hidden="true" />
-                  <span>{text}</span>
-                </li>
+            <dl className="border-border mt-10 grid grid-cols-3 gap-4 border-t pt-7 sm:gap-6">
+              {STATS.map((s, i) => (
+                <motion.div
+                  key={s.label}
+                  initial={reduced ? false : { opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.8 + i * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  <dt className="font-display text-xl font-semibold tracking-tight sm:text-3xl">
+                    {s.value}
+                  </dt>
+                  <dd className="text-muted-foreground mt-1.5 text-[9px] tracking-[0.2em] uppercase sm:text-[10px]">
+                    {s.label}
+                  </dd>
+                </motion.div>
               ))}
-            </ul>
+            </dl>
           </motion.div>
-        </motion.div>
+
+          {/* Visual */}
+          <motion.div
+            initial={reduced ? false : { opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            <div className="shadow-ember-lg grain relative aspect-[4/3] overflow-hidden sm:aspect-[16/11]">
+              <img
+                data-parallax="image"
+                src=""
+                alt="Meridian Cash & Carry flagship floor"
+                className="bg-secondary size-full scale-[1.2] object-cover"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(200deg, transparent 40%, color-mix(in oklab, var(--ember) 30%, transparent))",
+                }}
+              />
+              <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] gold-rule" />
+            </div>
+
+            <div
+              data-parallax="card"
+              className="bg-card border-border shadow-elevated mt-4 border p-5 sm:absolute sm:-bottom-10 sm:-left-6 sm:mt-0 sm:w-[300px] sm:p-6 lg:-left-16"
+            >
+              <p className="eyebrow">Delivery promise</p>
+              <ul className="mt-4 space-y-3">
+                {[
+                  { icon: Truck, text: "Free above ₹2,000 inside 5 km" },
+                  { icon: Clock, text: "90-minute doorstep windows" },
+                  { icon: ShieldCheck, text: "Cold-chain sealed, always" },
+                ].map(({ icon: Icon, text }) => (
+                  <li key={text} className="flex items-start gap-3 text-[13px] leading-snug">
+                    <Icon className="text-gold mt-px size-4 shrink-0" aria-hidden="true" />
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -11,13 +11,13 @@ const CATEGORIES = [
 
 export function Categories() {
   return (
-    <section className="mx-auto max-w-[1400px] px-6 py-24 md:py-32" aria-labelledby="aisles-title">
+    <section className="mx-auto max-w-[1400px] px-5 sm:px-6 py-24 md:py-32" aria-labelledby="aisles-title">
       <Reveal className="flex flex-wrap items-end justify-between gap-6">
         <div className="max-w-2xl">
           <p className="eyebrow">The floor plan</p>
           <h2
             id="aisles-title"
-            className="mt-4 text-[clamp(2rem,4vw,3.25rem)] leading-[1.02] font-semibold"
+            className="mt-4 display-lg"
           >
             Eleven departments. <span className="text-gold-gradient">One receipt.</span>
           </h2>

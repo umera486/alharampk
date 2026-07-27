@@ -71,7 +71,7 @@ export function DeliveryRadius() {
           <p className="eyebrow !text-gold">Delivery</p>
           <h2
             id="delivery-title"
-            className="mt-4 text-[clamp(2rem,4vw,3.25rem)] leading-[1.02] font-semibold"
+            className="mt-4 display-lg"
           >
             Everything in the store, five kilometres out.
           </h2>
