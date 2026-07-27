@@ -91,7 +91,7 @@ export function Hero() {
             {HEADLINE.map((w, i) => (
               <span key={w.text} className="block overflow-hidden">
                 <motion.span
-                  className={`block ${w.accent ? "text-gold-gradient" : ""}`}
+                  className={`block ${w.accent ? "text-crimson-gradient" : ""}`}
                   initial={reduced ? false : { y: "105%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1.15, delay: 0.12 + i * 0.09, ease: [0.19, 1, 0.22, 1] }}
@@ -110,7 +110,7 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="text-muted-foreground max-w-lg text-[15px] leading-relaxed sm:text-[17px]">
-              Meridian is a cash &amp; carry built like a flagship. Over a thousand pantry, fresh
+              Alharam is a cash &amp; carry built like a flagship. Over a thousand pantry, fresh
               and household lines at trade prices — and a delivery fleet that runs tight loops
               inside a five kilometre ring.
             </p>
@@ -165,7 +165,7 @@ export function Hero() {
               <img
                 data-parallax="image"
                 src=""
-                alt="Meridian Cash & Carry flagship floor"
+                alt="Alharam Cash & Carry flagship floor"
                 className="bg-secondary size-full scale-[1.2] object-cover"
               />
               <div

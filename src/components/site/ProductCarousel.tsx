@@ -67,7 +67,7 @@ export function ProductCarousel() {
               id="deals-title"
               className="mt-4 display-lg"
             >
-              Trade prices, <span className="text-gold-gradient">flagship quality</span>
+              Trade prices, <span className="text-crimson-gradient">flagship quality</span>
             </h2>
           </div>
           <div className="flex gap-2">

@@ -28,12 +28,12 @@ export function Features() {
   return (
     <section className="mx-auto max-w-[1400px] px-5 sm:px-6 py-24 md:py-32" aria-labelledby="why-title">
       <Reveal className="max-w-3xl">
-        <p className="eyebrow">Why Meridian</p>
+        <p className="eyebrow">Why Alharam</p>
         <h2
           id="why-title"
           className="mt-4 display-lg"
         >
-          Built for people who buy <span className="text-gold-gradient">seriously.</span>
+          Built for people who buy <span className="text-crimson-gradient">seriously.</span>
         </h2>
       </Reveal>
 

@@ -61,11 +61,11 @@ export function Navbar() {
           <Link to="/" className="group flex items-center gap-3">
             <span className="relative grid size-9 place-items-center overflow-hidden rounded-sm bg-primary">
               <span className="font-display text-primary-foreground text-sm font-bold">M</span>
-              <span className="absolute inset-x-0 bottom-0 h-[2px] gold-rule" />
+              <span className="absolute inset-x-0 bottom-0 h-[2px] crimson-rule" />
             </span>
             <span className="leading-none">
               <span className="font-display block text-[15px] font-semibold tracking-tight">
-                MERIDIAN
+                ALHARAM
               </span>
               <span className="text-muted-foreground block text-[10px] tracking-[0.32em] uppercase">
                 Cash &amp; Carry

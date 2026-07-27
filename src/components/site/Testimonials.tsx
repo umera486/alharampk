@@ -4,7 +4,7 @@ import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 const QUOTES = [
   {
     quote:
-      "We run three kitchens off Meridian. Case pricing, one invoice, and produce that survives a Saturday service.",
+      "We run three kitchens off Alharam. Case pricing, one invoice, and produce that survives a Saturday service.",
     name: "Anaya Raghunathan",
     role: "Executive Chef, Pallavi House",
   },
@@ -31,7 +31,7 @@ export function Testimonials() {
           id="voices-title"
           className="mt-4 display-lg"
         >
-          Trusted by kitchens, <span className="text-gold-gradient">offices and households.</span>
+          Trusted by kitchens, <span className="text-crimson-gradient">offices and households.</span>
         </h2>
       </Reveal>
 

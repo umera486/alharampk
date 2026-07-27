@@ -12,7 +12,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-5 sm:px-6 py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_2fr]">
           <div>
-            <span className="font-display text-2xl font-semibold tracking-tight">MERIDIAN</span>
+            <span className="font-display text-2xl font-semibold tracking-tight">ALHARAM</span>
             <span className="mt-1 block text-[10px] tracking-[0.32em] uppercase opacity-60">
               Cash &amp; Carry
             </span>
@@ -47,7 +47,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col justify-between gap-4 border-t border-white/10 pt-8 text-[12px] opacity-50 sm:flex-row">
-          <p>© {new Date().getFullYear()} Meridian Cash &amp; Carry. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Alharam Cash &amp; Carry. All rights reserved.</p>
           <p>Privacy · Terms · Accessibility</p>
         </div>
       </div>
