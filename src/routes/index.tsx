@@ -39,6 +39,7 @@ function Index() {
       <main>
         <Hero />
         <Marquee />
+        <Manifesto />
         <Categories />
         <ProductCarousel />
         <Features />
