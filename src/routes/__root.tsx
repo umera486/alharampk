@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { GroceryAssistant } from "../components/assistant/GroceryAssistant";
+import { AuthProvider } from "../lib/auth-context";
+import { useAuth } from "../lib/auth-context";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -130,9 +132,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-      <GroceryAssistant />
+      <AuthProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <GroceryAssistant />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
