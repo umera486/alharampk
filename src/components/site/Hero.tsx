@@ -131,7 +131,7 @@ export function Hero() {
               </Link>
               <Link
                 to="/shop"
-                search={{ bulk: true }}
+
                 className="border-border hover:border-emerald hover:bg-card inline-flex items-center justify-center gap-2 rounded-full border px-7 py-4 text-sm font-bold tracking-wide transition-all duration-500"
               >
                 Open a trade account
