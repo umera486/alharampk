@@ -12,7 +12,6 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { GroceryAssistant } from "../components/assistant/GroceryAssistant";
 import { AuthProvider } from "../lib/auth-context";
-import { useAuth } from "../lib/auth-context";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -75,7 +74,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient; session: null }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
