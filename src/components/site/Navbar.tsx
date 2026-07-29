@@ -2,21 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import { Menu, X, Search, ShoppingBag, MapPin } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { CATEGORIES } from "@/lib/catalog";
 
-const LINKS = [
-  { label: "Aisles", href: "/" },
-  { label: "Fresh Market", href: "/" },
-  { label: "Bulk & Wholesale", href: "/" },
-  { label: "Delivery", href: "/" },
-  { label: "Membership", href: "/" },
+const NAV = [
+  { label: "Shop", to: "/shop" as const },
+  { label: "Departments", to: "/shop" as const },
+  { label: "Bulk & B2B", to: "/shop" as const },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const reduced = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,135 +23,128 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      {/* Utility strip */}
-      <div className="surface-crimson hidden text-white md:block">
-        <div className="mx-auto flex h-9 max-w-[1400px] items-center justify-between px-6 text-[11px] tracking-[0.18em] uppercase">
-          <span className="flex items-center gap-2 opacity-80">
-            <MapPin className="size-3.5" aria-hidden="true" />
-            Same-day delivery within a 5&nbsp;km radius
-          </span>
-          <span className="font-semibold text-white/95">1,000+ curated items in store</span>
-        </div>
+    <>
+      <div className="surface-emerald fixed inset-x-0 top-0 z-50 py-2 text-center text-[10px] font-bold tracking-[0.18em] uppercase">
+        Free delivery over £60 · inside the 5 km ring · 90-minute windows
       </div>
 
-      <motion.div
-        animate={{
-          backgroundColor: scrolled ? "oklch(1 0 0 / 0.86)" : "oklch(1 0 0 / 0)",
-          borderColor: scrolled ? "oklch(0.915 0.004 85 / 1)" : "oklch(0.915 0.004 85 / 0)",
-          boxShadow: scrolled ? "0 20px 50px -40px oklch(0 0 0 / 0.5)" : "0 0 0 0 transparent",
-        }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="border-b backdrop-blur-xl"
+      <header
+        className={`fixed inset-x-0 top-[30px] z-50 transition-all duration-500 ${
+          scrolled ? "glass-panel shadow-elevated border-x-0 border-t-0" : "border-b border-transparent"
+        }`}
       >
-        <nav
-          aria-label="Primary"
-          className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-6"
-        >
-          <Link to="/" className="group flex items-center gap-3">
-            <span className="surface-crimson shadow-ember relative grid size-10 place-items-center overflow-hidden rounded-sm">
-              <span className="font-display text-[17px] leading-none font-semibold text-white">
-                A
-              </span>
-              <span className="absolute inset-x-0 bottom-0 h-[2px] gold-rule" />
+        <nav className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 sm:px-6">
+          <Link to="/" className="flex min-w-0 items-center gap-3">
+            <span className="surface-emerald font-display grid size-9 shrink-0 place-items-center rounded-xl text-sm font-extrabold">
+              AH
             </span>
-            <span className="leading-none">
-              <span className="font-display block text-[19px] font-semibold tracking-[-0.02em]">
-                ALHARAM
+            <span className="min-w-0">
+              <span className="font-display block truncate text-[15px] leading-none font-extrabold tracking-tight">
+                Al-Haram
               </span>
-              <span className="text-ember/80 block text-[9px] font-bold tracking-[0.34em] uppercase">
-                Cash &amp; Carry
+              <span className="text-muted-foreground block truncate text-[9px] tracking-[0.24em] uppercase">
+                Wholesale &amp; Cash Carry
               </span>
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-9 lg:flex">
-            {LINKS.map((link) => (
-              <li key={link.label}>
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+            <div className="mr-2 hidden items-center gap-1 lg:flex">
+              {NAV.map((n) => (
                 <Link
-                  to={link.href}
-                  className="text-foreground/80 hover:text-foreground relative text-[13px] font-medium tracking-wide transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-[image:var(--gradient-gold)] after:transition-transform after:duration-500 after:content-[''] hover:after:origin-left hover:after:scale-x-100"
+                  key={n.label}
+                  to={n.to}
+                  className="hover:text-emerald rounded-full px-4 py-2 text-[13px] font-semibold transition-colors"
                 >
-                  {link.label}
+                  {n.label}
                 </Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex items-center gap-2">
+              ))}
+            </div>
             <button
-              type="button"
               aria-label="Search the catalogue"
-              className="hover:bg-secondary grid size-10 place-items-center rounded-full transition-colors"
+              className="hover:bg-card grid size-10 place-items-center rounded-full transition-colors"
             >
-              <Search className="size-[18px]" aria-hidden="true" />
+              <Search className="size-4" />
             </button>
             <button
-              type="button"
-              aria-label="Open basket"
-              className="hover:bg-secondary relative grid size-10 place-items-center rounded-full transition-colors"
+              aria-label="Basket"
+              className="hover:bg-card relative grid size-10 place-items-center rounded-full transition-colors"
             >
-              <ShoppingBag className="size-[18px]" aria-hidden="true" />
-              <span className="bg-ember absolute top-1.5 right-1.5 size-1.5 rounded-full" />
+              <ShoppingBag className="size-4" />
+              <span className="surface-emerald absolute top-1.5 right-1.5 grid size-4 place-items-center rounded-full text-[9px] font-bold">
+                3
+              </span>
             </button>
-            <Link
-              to="/"
-              className="surface-crimson text-white hover:shadow-ember-lg ml-2 hidden rounded-full px-5 py-2.5 text-[13px] font-semibold tracking-wide transition-all duration-500 hover:-translate-y-0.5 sm:inline-flex"
-            >
-              Check delivery
-            </Link>
             <button
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-              className="hover:bg-secondary grid size-10 place-items-center rounded-full transition-colors lg:hidden"
+              onClick={() => setOpen(true)}
+              aria-label="Open menu"
+              className="hover:bg-card grid size-10 place-items-center rounded-full transition-colors lg:hidden"
             >
-              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+              <Menu className="size-4" />
             </button>
           </div>
         </nav>
-      </motion.div>
+      </header>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={reduced ? false : { opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-background/98 border-border border-b backdrop-blur-xl lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] lg:hidden"
           >
-            <ul className="mx-auto max-w-[1400px] px-5 sm:px-6 py-6">
-              {LINKS.map((link, i) => (
-                <motion.li
-                  key={link.label}
-                  initial={reduced ? false : { opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="border-border/70 border-b last:border-none"
+            <div className="bg-foreground/40 absolute inset-0" onClick={() => setOpen(false)} />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-card absolute inset-y-0 right-0 flex w-[86vw] max-w-sm flex-col overflow-y-auto p-6"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-display text-lg font-extrabold">Menu</span>
+                <button
+                  onClick={() => setOpen(false)}
+                  aria-label="Close menu"
+                  className="hover:bg-secondary grid size-9 place-items-center rounded-full"
                 >
+                  <X className="size-4" />
+                </button>
+              </div>
+
+              <div className="mt-8 space-y-1">
+                {NAV.map((n) => (
                   <Link
-                    to={link.href}
+                    key={n.label}
+                    to={n.to}
                     onClick={() => setOpen(false)}
-                    className="font-display block py-4 text-lg font-medium"
+                    className="font-display block py-2.5 text-2xl font-extrabold tracking-tight"
                   >
-                    {link.label}
+                    {n.label}
                   </Link>
-                </motion.li>
-              ))}
-            </ul>
+                ))}
+              </div>
+
+              <p className="eyebrow mt-10">Departments</p>
+              <div className="mt-4 space-y-1">
+                {CATEGORIES.map((c) => (
+                  <Link
+                    key={c.slug}
+                    to="/category/$slug"
+                    params={{ slug: c.slug }}
+                    onClick={() => setOpen(false)}
+                    className="text-muted-foreground hover:text-emerald block py-1.5 text-[14px] font-semibold transition-colors"
+                  >
+                    {c.name}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
