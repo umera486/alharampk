@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { GroceryAssistant } from "../components/assistant/GroceryAssistant";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -77,16 +78,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Golden Pantry Gateway is a premium online grocery store homepage with exclusive 5km delivery." },
+      { title: "Al-Haram Wholesale & Cash Carry" },
+      { name: "description", content: "Hybrid B2B and B2C cash & carry with 1,000+ lines at trade prices and 90-minute delivery inside a 5 km ring." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Golden Pantry Gateway is a premium online grocery store homepage with exclusive 5km delivery." },
+      { property: "og:title", content: "Al-Haram Wholesale & Cash Carry" },
+      { property: "og:description", content: "Hybrid B2B and B2C cash & carry with 1,000+ lines at trade prices and 90-minute delivery inside a 5 km ring." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Golden Pantry Gateway is a premium online grocery store homepage with exclusive 5km delivery." },
+      { name: "twitter:title", content: "Al-Haram Wholesale & Cash Carry" },
+      { name: "twitter:description", content: "Hybrid B2B and B2C cash & carry with 1,000+ lines at trade prices and 90-minute delivery inside a 5 km ring." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/1mOXzHCSy4OrceFyifktxflRXI53/social-images/social-1785118291075-Screenshot_2026-07-23_184324.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/1mOXzHCSy4OrceFyifktxflRXI53/social-images/social-1785118291075-Screenshot_2026-07-23_184324.webp" },
     ],
@@ -95,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap",
+        href: "https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap",
       },
       {
         rel: "stylesheet",
@@ -131,6 +132,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <GroceryAssistant />
     </QueryClientProvider>
   );
 }
