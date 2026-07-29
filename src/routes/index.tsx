@@ -4,8 +4,9 @@ import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { Manifesto } from "@/components/site/Manifesto";
-import { Categories } from "@/components/site/Categories";
-import { ProductCarousel } from "@/components/site/ProductCarousel";
+import { CategoryGrid } from "@/components/site/CategoryGrid";
+import { DealOfTheDay } from "@/components/site/DealOfTheDay";
+import { BulkBuying } from "@/components/site/BulkBuying";
 import { Features } from "@/components/site/Features";
 import { DeliveryRadius } from "@/components/site/DeliveryRadius";
 import { Testimonials } from "@/components/site/Testimonials";
@@ -13,9 +14,9 @@ import { DeliveryCTA } from "@/components/site/DeliveryCTA";
 import { Footer } from "@/components/site/Footer";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 
-const TITLE = "Alharam Cash & Carry — 1,000+ Lines, 5 km Delivery";
+const TITLE = "Al-Haram Wholesale & Cash Carry — Trade Prices, 5 km Delivery";
 const DESCRIPTION =
-  "A flagship cash & carry with 1,000+ curated grocery lines at trade prices, delivered to any address within 5 km in 90-minute windows.";
+  "A hybrid B2B and B2C cash & carry: 1,000+ grocery lines at trade prices, pallet tiers for kitchens, and 90-minute delivery inside a 5 km ring.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,9 +40,10 @@ function Index() {
       <main>
         <Hero />
         <Marquee />
+        <CategoryGrid />
+        <DealOfTheDay />
         <Manifesto />
-        <Categories />
-        <ProductCarousel />
+        <BulkBuying />
         <Features />
         <DeliveryRadius />
         <Testimonials />

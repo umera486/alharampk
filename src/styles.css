@@ -13,8 +13,8 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Satoshi", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Satoshi", "Manrope", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -34,8 +34,13 @@
   --color-gold-soft: var(--gold-soft);
   --color-gold-deep: var(--gold-deep);
   --color-gold-foreground: var(--gold-foreground);
-  --color-ember: var(--ember);
-  --color-ember-deep: var(--ember-deep);
+  --color-emerald: var(--emerald);
+  --color-emerald-deep: var(--emerald-deep);
+  --color-emerald-glow: var(--emerald-glow);
+  --color-emerald-foreground: var(--emerald-foreground);
+  /* legacy aliases kept so older sections keep compiling */
+  --color-ember: var(--emerald);
+  --color-ember-deep: var(--emerald-deep);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -60,55 +65,60 @@
 :root {
   --radius: 0.25rem;
 
-  --background: oklch(0.995 0.001 100);
-  --foreground: oklch(0.13 0.005 60);
+  /* #EBEBEB premium light canvas */
+  --background: oklch(0.9276 0 0);
+  --foreground: oklch(0.155 0.006 160);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.13 0.005 60);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.13 0.005 60);
+  --card: oklch(0.995 0.001 120);
+  --card-foreground: oklch(0.155 0.006 160);
+  --popover: oklch(0.995 0.001 120);
+  --popover-foreground: oklch(0.155 0.006 160);
 
-  --primary: oklch(0.13 0.005 60);
-  --primary-foreground: oklch(0.99 0.001 100);
+  --primary: oklch(0.155 0.006 160);
+  --primary-foreground: oklch(0.985 0.002 120);
 
-  --secondary: oklch(0.968 0.003 90);
-  --secondary-foreground: oklch(0.18 0.005 60);
+  --secondary: oklch(0.885 0.004 150);
+  --secondary-foreground: oklch(0.2 0.006 160);
 
-  --muted: oklch(0.968 0.003 90);
-  --muted-foreground: oklch(0.5 0.008 70);
+  --muted: oklch(0.885 0.004 150);
+  --muted-foreground: oklch(0.475 0.01 160);
 
-  --accent: oklch(0.968 0.003 90);
-  --accent-foreground: oklch(0.18 0.005 60);
+  --accent: oklch(0.9 0.02 160);
+  --accent-foreground: oklch(0.2 0.006 160);
 
-  --gold: oklch(0.79 0.125 87);
-  --gold-soft: oklch(0.92 0.06 94);
-  --gold-deep: oklch(0.62 0.11 78);
+  --emerald: oklch(0.56 0.135 162);
+  --emerald-deep: oklch(0.38 0.1 164);
+  --emerald-glow: oklch(0.74 0.14 160);
+  --emerald-foreground: oklch(0.985 0.002 120);
+  --ember: var(--emerald);
+  --ember-deep: var(--emerald-deep);
+
+  --gold: oklch(0.79 0.115 88);
+  --gold-soft: oklch(0.92 0.055 94);
+  --gold-deep: oklch(0.63 0.1 80);
   --gold-foreground: oklch(0.16 0.02 70);
-
-  --ember: oklch(0.57 0.22 27);
-  --ember-deep: oklch(0.42 0.18 26);
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0.001 100);
 
-  --border: oklch(0.9 0.003 90);
-  --input: oklch(0.9 0.003 90);
-  --ring: oklch(0.57 0.22 27);
+  --border: oklch(0.855 0.004 150);
+  --input: oklch(0.855 0.004 150);
+  --ring: oklch(0.56 0.135 162);
 
-  --chart-1: oklch(0.79 0.125 87);
-  --chart-2: oklch(0.57 0.22 27);
-  --chart-3: oklch(0.13 0.005 60);
-  --chart-4: oklch(0.92 0.06 94);
-  --chart-5: oklch(0.5 0.008 70);
+  --chart-1: oklch(0.56 0.135 162);
+  --chart-2: oklch(0.79 0.115 88);
+  --chart-3: oklch(0.155 0.006 160);
+  --chart-4: oklch(0.74 0.14 160);
+  --chart-5: oklch(0.475 0.01 160);
 
-  --sidebar: oklch(0.99 0.001 100);
-  --sidebar-foreground: oklch(0.13 0.005 60);
-  --sidebar-primary: oklch(0.13 0.005 60);
-  --sidebar-primary-foreground: oklch(0.99 0.001 100);
-  --sidebar-accent: oklch(0.968 0.003 90);
-  --sidebar-accent-foreground: oklch(0.18 0.005 60);
-  --sidebar-border: oklch(0.9 0.003 90);
-  --sidebar-ring: oklch(0.79 0.125 87);
+  --sidebar: oklch(0.985 0.002 120);
+  --sidebar-foreground: oklch(0.155 0.006 160);
+  --sidebar-primary: oklch(0.56 0.135 162);
+  --sidebar-primary-foreground: oklch(0.985 0.002 120);
+  --sidebar-accent: oklch(0.9 0.02 160);
+  --sidebar-accent-foreground: oklch(0.2 0.006 160);
+  --sidebar-border: oklch(0.855 0.004 150);
+  --sidebar-ring: oklch(0.56 0.135 162);
 
   /* Signature surfaces */
   --gradient-gold: linear-gradient(
@@ -118,51 +128,59 @@
     var(--gold-deep) 72%,
     var(--gold-soft) 100%
   );
-  --gradient-ember: linear-gradient(135deg, var(--ember) 0%, var(--ember-deep) 100%);
-  --gradient-crimson: linear-gradient(
+  --gradient-emerald: linear-gradient(
     100deg,
-    oklch(0.62 0.23 30) 0%,
-    var(--ember) 34%,
-    var(--ember-deep) 68%,
-    oklch(0.6 0.22 32) 100%
+    var(--emerald-glow) 0%,
+    var(--emerald) 38%,
+    var(--emerald-deep) 78%,
+    var(--emerald) 100%
   );
-  --gradient-ink: linear-gradient(165deg, oklch(0.2 0.008 40) 0%, oklch(0.09 0.006 40) 100%);
-  --gradient-ember-wash: radial-gradient(
+  --gradient-crimson: var(--gradient-emerald);
+  --gradient-ember: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
+  --gradient-ink: linear-gradient(165deg, oklch(0.22 0.02 165) 0%, oklch(0.11 0.012 165) 100%);
+  --gradient-jade-wash: radial-gradient(
     120% 95% at 50% 0%,
-    color-mix(in oklab, var(--ember) 22%, transparent) 0%,
-    color-mix(in oklab, var(--gold) 9%, transparent) 34%,
-    transparent 68%
+    color-mix(in oklab, var(--emerald) 26%, transparent) 0%,
+    color-mix(in oklab, var(--gold) 8%, transparent) 36%,
+    transparent 70%
   );
+  --gradient-ember-wash: var(--gradient-jade-wash);
 
-  --shadow-ember: 0 24px 70px -38px color-mix(in oklab, var(--ember) 62%, transparent);
-  --shadow-ember-lg: 0 50px 130px -55px color-mix(in oklab, var(--ember) 72%, transparent);
+  --glass-bg: color-mix(in oklab, oklch(1 0 0) 62%, transparent);
+  --glass-border: color-mix(in oklab, var(--emerald) 28%, transparent);
+
+  --shadow-emerald: 0 24px 70px -38px color-mix(in oklab, var(--emerald) 70%, transparent);
+  --shadow-emerald-lg: 0 50px 130px -55px color-mix(in oklab, var(--emerald-deep) 78%, transparent);
+  --shadow-ember: var(--shadow-emerald);
+  --shadow-ember-lg: var(--shadow-emerald-lg);
   --shadow-gold: 0 22px 60px -34px color-mix(in oklab, var(--gold-deep) 70%, transparent);
   --shadow-elevated:
-    0 1px 2px oklch(0 0 0 / 0.05), 0 24px 60px -34px oklch(0 0 0 / 0.3),
-    0 40px 100px -60px color-mix(in oklab, var(--ember) 40%, transparent);
+    0 1px 2px oklch(0 0 0 / 0.05), 0 24px 60px -34px oklch(0 0 0 / 0.28),
+    0 40px 100px -60px color-mix(in oklab, var(--emerald) 38%, transparent);
 
   --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dark {
-  --background: oklch(0.12 0.005 60);
-  --foreground: oklch(0.98 0.001 100);
-  --card: oklch(0.17 0.005 60);
-  --card-foreground: oklch(0.98 0.001 100);
-  --popover: oklch(0.17 0.005 60);
-  --popover-foreground: oklch(0.98 0.001 100);
-  --primary: oklch(0.98 0.001 100);
-  --primary-foreground: oklch(0.13 0.005 60);
-  --secondary: oklch(0.22 0.005 60);
-  --secondary-foreground: oklch(0.98 0.001 100);
-  --muted: oklch(0.22 0.005 60);
-  --muted-foreground: oklch(0.7 0.008 70);
-  --accent: oklch(0.22 0.005 60);
-  --accent-foreground: oklch(0.98 0.001 100);
+  --background: oklch(0.14 0.01 165);
+  --foreground: oklch(0.98 0.002 120);
+  --card: oklch(0.185 0.012 165);
+  --card-foreground: oklch(0.98 0.002 120);
+  --popover: oklch(0.185 0.012 165);
+  --popover-foreground: oklch(0.98 0.002 120);
+  --primary: oklch(0.98 0.002 120);
+  --primary-foreground: oklch(0.14 0.01 165);
+  --secondary: oklch(0.24 0.014 165);
+  --secondary-foreground: oklch(0.98 0.002 120);
+  --muted: oklch(0.24 0.014 165);
+  --muted-foreground: oklch(0.72 0.012 160);
+  --accent: oklch(0.26 0.03 165);
+  --accent-foreground: oklch(0.98 0.002 120);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --sidebar: oklch(0.17 0.005 60);
-  --sidebar-foreground: oklch(0.98 0.001 100);
+  --glass-bg: color-mix(in oklab, oklch(0.2 0.014 165) 66%, transparent);
+  --sidebar: oklch(0.185 0.012 165);
+  --sidebar-foreground: oklch(0.98 0.002 120);
   --sidebar-border: oklch(1 0 0 / 10%);
 }
 
@@ -188,13 +206,12 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-variation-settings: "opsz" 96, "WONK" 1;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     line-height: 1.02;
   }
 
   ::selection {
-    background: var(--ember);
+    background: var(--emerald);
     color: oklch(0.99 0.001 100);
   }
 }
@@ -205,52 +222,50 @@
   color: transparent;
 }
 
-@utility text-crimson-gradient {
-  background-image: var(--gradient-crimson);
+@utility text-emerald-gradient {
+  background-image: var(--gradient-emerald);
   background-clip: text;
   color: transparent;
 }
 
-@utility surface-crimson {
-  background-image: var(--gradient-crimson);
+@utility text-crimson-gradient {
+  background-image: var(--gradient-emerald);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-ember-gradient {
+  background-image: var(--gradient-emerald);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility surface-emerald {
+  background-image: var(--gradient-emerald);
   color: oklch(0.99 0.001 100);
 }
 
-@utility crimson-rule {
-  background-image: var(--gradient-crimson);
+@utility surface-crimson {
+  background-image: var(--gradient-emerald);
+  color: oklch(0.99 0.001 100);
+}
+
+@utility emerald-rule {
+  background-image: var(--gradient-emerald);
   height: 1px;
   width: 100%;
 }
 
-@utility text-ember-gradient {
-  background-image: var(--gradient-ember);
-  background-clip: text;
-  color: transparent;
+@utility crimson-rule {
+  background-image: var(--gradient-emerald);
+  height: 1px;
+  width: 100%;
 }
 
-@utility surface-ink {
-  background-image: var(--gradient-ink);
-  color: var(--color-primary-foreground);
-}
-
-@utility surface-ember-wash {
-  background-image: var(--gradient-ember-wash);
-}
-
-@utility shadow-ember {
-  box-shadow: var(--shadow-ember);
-}
-
-@utility shadow-ember-lg {
-  box-shadow: var(--shadow-ember-lg);
-}
-
-@utility shadow-gold {
-  box-shadow: var(--shadow-gold);
-}
-
-@utility shadow-elevated {
-  box-shadow: var(--shadow-elevated);
+@utility ember-rule {
+  background-image: var(--gradient-emerald);
+  height: 1px;
+  width: 100%;
 }
 
 @utility gold-rule {
@@ -259,10 +274,47 @@
   width: 100%;
 }
 
-@utility ember-rule {
-  background-image: var(--gradient-ember);
-  height: 1px;
-  width: 100%;
+@utility surface-ink {
+  background-image: var(--gradient-ink);
+  color: oklch(0.985 0.002 120);
+}
+
+@utility surface-jade-wash {
+  background-image: var(--gradient-jade-wash);
+}
+
+@utility surface-ember-wash {
+  background-image: var(--gradient-jade-wash);
+}
+
+@utility glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid var(--glass-border);
+}
+
+@utility shadow-emerald {
+  box-shadow: var(--shadow-emerald);
+}
+
+@utility shadow-emerald-lg {
+  box-shadow: var(--shadow-emerald-lg);
+}
+
+@utility shadow-ember {
+  box-shadow: var(--shadow-emerald);
+}
+
+@utility shadow-ember-lg {
+  box-shadow: var(--shadow-emerald-lg);
+}
+
+@utility shadow-gold {
+  box-shadow: var(--shadow-gold);
+}
+
+@utility shadow-elevated {
+  box-shadow: var(--shadow-elevated);
 }
 
 @utility eyebrow {
@@ -275,20 +327,18 @@
 
 @utility display-xl {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
-  font-size: clamp(2.9rem, 9.2vw, 8.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.045em;
+  font-weight: 900;
+  font-size: clamp(2.7rem, 8.8vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
 }
 
 @utility display-lg {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-variation-settings: "opsz" 120, "WONK" 1;
-  font-size: clamp(2.1rem, 5vw, 4rem);
+  font-weight: 800;
+  font-size: clamp(2rem, 4.8vw, 3.9rem);
   line-height: 1.02;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.042em;
 }
 
 @utility lift {
@@ -297,7 +347,7 @@
     box-shadow 0.7s var(--ease-lux);
   &:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-ember);
+    box-shadow: var(--shadow-emerald);
   }
 }
 
@@ -324,4 +374,11 @@
     linear-gradient(to right, var(--color-border) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
   background-size: 80px 80px;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
