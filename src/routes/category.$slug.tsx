@@ -48,14 +48,14 @@ function CategoryPage() {
             src={category.image}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 size-full object-cover opacity-25"
+            className="absolute inset-0 size-full object-cover opacity-35"
           />
           <div
             aria-hidden="true"
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, color-mix(in oklab, oklch(0.14 0.02 165) 70%, transparent), oklch(0.12 0.015 165))",
+                "linear-gradient(180deg, color-mix(in oklab, oklch(0.2 0.09 27) 70%, transparent), oklch(0.16 0.09 27))",
             }}
           />
           <div className="relative mx-auto max-w-[1400px] px-5 sm:px-6">
@@ -65,7 +65,7 @@ function CategoryPage() {
             >
               <ArrowLeft className="size-3.5" /> All departments
             </Link>
-            <h1 className="display-lg mt-6 max-w-3xl text-white">{category.name}</h1>
+            <h1 className="display-lg mt-6 max-w-3xl text-gold-gradient">{category.name}</h1>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65">
               {category.blurb}
             </p>

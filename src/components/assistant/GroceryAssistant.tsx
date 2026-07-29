@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Send, X } from "lucide-react";
+import { IMAGES } from "@/lib/catalog";
 
 type Msg = { id: number; role: "assistant" | "user"; text: string };
 
@@ -77,11 +78,31 @@ export function GroceryAssistant() {
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close assistant"
-                className="hover:bg-secondary grid size-8 shrink-0 place-items-center rounded-full transition-colors"
+                className="glass-panel hover:gold-glow grid size-8 shrink-0 place-items-center rounded-full transition-all duration-400"
               >
                 <X className="size-4" />
               </button>
             </header>
+
+            <div className="relative h-20 shrink-0 overflow-hidden border-b border-gold/15">
+              <img
+                src={IMAGES.freshProduce}
+                alt="Fresh produce for recipe mapping"
+                loading="lazy"
+                className="size-full object-cover opacity-60"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(90deg, color-mix(in oklab, oklch(0.2 0.09 27) 82%, transparent), transparent 80%)",
+                }}
+              />
+              <p className="absolute inset-y-0 left-4 flex items-center text-[10px] font-bold tracking-[0.22em] text-gold uppercase">
+                Fresh today
+              </p>
+            </div>
 
             <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
               {messages.map((m) => (
@@ -112,7 +133,7 @@ export function GroceryAssistant() {
                   <button
                     key={c}
                     onClick={() => send(c)}
-                    className="border-border hover:border-emerald hover:text-emerald shrink-0 rounded-full border px-3 py-1.5 text-[11px] font-semibold whitespace-nowrap transition-colors"
+                    className="glass-panel hover:gold-glow shrink-0 rounded-full px-3 py-1.5 text-[11px] font-semibold whitespace-nowrap transition-all duration-400"
                   >
                     {c}
                   </button>
@@ -123,7 +144,7 @@ export function GroceryAssistant() {
                   e.preventDefault();
                   send(value);
                 }}
-                className="border-border bg-card/70 flex items-center gap-2 rounded-full border py-1 pr-1 pl-4"
+                className="glass-panel flex items-center gap-2 rounded-full py-1 pr-1 pl-4"
               >
                 <input
                   ref={inputRef}

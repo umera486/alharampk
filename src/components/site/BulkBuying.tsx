@@ -3,6 +3,7 @@
 import { Link } from "@tanstack/react-router";
 import { gsap } from "gsap";
 import { ArrowRight, Building2, FileText, Percent, Truck } from "lucide-react";
+import { IMAGES } from "@/lib/catalog";
 import { useGsap } from "./useGsap";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 
@@ -45,7 +46,7 @@ export function BulkBuying() {
               the till and online.
             </p>
 
-            <div className="border-border bg-card shadow-elevated mt-9 overflow-hidden rounded-2xl border">
+            <div className="glass-panel shadow-elevated mt-9 overflow-hidden rounded-2xl">
               {TIERS.map((t, i) => (
                 <div
                   key={t.qty}
@@ -78,11 +79,11 @@ export function BulkBuying() {
           </Reveal>
 
           <div data-parallax="slab" className="min-w-0">
-            <div className="shadow-emerald-lg grain relative aspect-[4/5] overflow-hidden rounded-3xl sm:aspect-[4/3] lg:aspect-[4/5]">
+            <div className="shadow-emerald-lg grain glass-card relative aspect-[4/5] overflow-hidden rounded-3xl sm:aspect-[4/3] lg:aspect-[4/5]">
               <img
-                src=""
+                src={IMAGES.wholesale}
                 alt="Pallet racking on the Al-Haram wholesale floor"
-                className="bg-secondary size-full object-cover"
+                className="size-full object-cover"
               />
               <span aria-hidden="true" className="gold-rule absolute inset-x-0 bottom-0 h-[3px]" />
             </div>
@@ -91,7 +92,7 @@ export function BulkBuying() {
               {PERKS.map((p) => (
                 <RevealItem
                   key={p.title}
-                  className="bg-card border-border rounded-2xl border p-4 sm:p-5"
+                  className="glass-card rounded-2xl p-4 sm:p-5"
                 >
                   <p.icon className="text-emerald size-4" aria-hidden="true" />
                   <p className="mt-3 text-[13px] font-bold">{p.title}</p>

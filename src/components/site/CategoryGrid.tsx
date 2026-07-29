@@ -37,20 +37,20 @@ export function CategoryGrid() {
                 <Link
                   to="/category/$slug"
                   params={{ slug: c.slug }}
-                  className="group bg-card border-border shadow-elevated relative flex size-full flex-col justify-end overflow-hidden rounded-2xl border p-5 sm:p-6"
+                  className="group glass-card shadow-elevated relative flex size-full flex-col justify-end overflow-hidden rounded-2xl p-5 sm:p-6"
                 >
                   <img
                     src={c.image}
                     alt={c.name}
                     loading="lazy"
-                    className="bg-secondary absolute inset-0 size-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
+                    className="absolute inset-0 size-full object-cover opacity-55 transition-all duration-[1.2s] group-hover:scale-110 group-hover:opacity-75"
                   />
                   <div
                     aria-hidden="true"
                     className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-95"
                     style={{
                       background:
-                        "linear-gradient(180deg, transparent 25%, color-mix(in oklab, oklch(0.12 0.012 165) 88%, transparent) 100%)",
+                        "linear-gradient(180deg, transparent 20%, color-mix(in oklab, oklch(0.18 0.09 27) 92%, transparent) 100%)",
                     }}
                   />
                   <motion.div className="relative">

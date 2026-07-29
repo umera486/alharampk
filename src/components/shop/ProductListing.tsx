@@ -80,7 +80,7 @@ export function ProductListing({ fixedCategory }: { fixedCategory?: CategorySlug
             ))}
           </div>
         ) : results.length === 0 ? (
-          <div className="border-border rounded-2xl border border-dashed py-24 text-center">
+          <div className="glass-card rounded-2xl border border-dashed border-gold/30 py-24 text-center">
             <p className="font-display text-xl font-extrabold">Nothing matches yet</p>
             <p className="text-muted-foreground mx-auto mt-2 max-w-sm text-sm">
               Loosen a filter or widen the price ceiling — we hold over 1,000 lines on the floor.
@@ -109,7 +109,7 @@ export function ProductListing({ fixedCategory }: { fixedCategory?: CategorySlug
           <div className="mt-10 text-center">
             <button
               onClick={() => setPage((p) => p + 1)}
-              className="border-border hover:border-emerald hover:text-emerald rounded-full border px-8 py-3.5 text-[12px] font-bold tracking-wide transition-colors"
+              className="glass-panel hover:gold-glow rounded-full px-8 py-3.5 text-[12px] font-bold tracking-wide transition-all duration-400"
             >
               Load more lines
             </button>

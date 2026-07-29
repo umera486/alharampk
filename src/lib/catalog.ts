@@ -16,6 +16,17 @@ export type Product = {
   image: string;
 };
 
+export const IMAGES = {
+  hero:
+    "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80",
+  spices:
+    "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
+  wholesale:
+    "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=1920&q=80",
+  freshProduce:
+    "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?auto=format&fit=crop&w=800&q=80",
+} as const;
+
 export type CategorySlug =
   | "fresh-produce"
   | "butchery"
@@ -40,56 +51,56 @@ export const CATEGORIES: Category[] = [
     name: "Fresh Produce",
     blurb: "Farm crates in by 5am, on the floor by 7.",
     lines: 184,
-    image: "",
+    image: IMAGES.freshProduce,
   },
   {
     slug: "butchery",
     name: "Butchery",
     blurb: "Halal-certified, cut to order, cold-chain sealed.",
     lines: 96,
-    image: "",
+    image: "https://images.unsplash.com/photo-1607623650997-625d2774f61e?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "dairy-chill",
     name: "Dairy & Chill",
     blurb: "Milk, cheese and yoghurt held at a strict 3°C.",
     lines: 121,
-    image: "",
+    image: "https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "bakery",
     name: "Bakery",
     blurb: "Baked on-site every four hours, all day.",
     lines: 74,
-    image: "",
+    image: "https://images.unsplash.com/photo-1517433670267-08bbd425865f?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "pantry-staples",
     name: "Pantry Staples",
     blurb: "Oils, spices, tinned and dry goods at trade rates.",
     lines: 268,
-    image: "",
+    image: IMAGES.spices,
   },
   {
     slug: "bulk-grains",
     name: "Bulk Grains",
     blurb: "Rice, flour and pulses by the sack or pallet.",
     lines: 92,
-    image: "",
+    image: IMAGES.wholesale,
   },
   {
     slug: "beverages",
     name: "Beverages",
     blurb: "Cases, crates and chilled singles.",
     lines: 143,
-    image: "",
+    image: "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "household",
     name: "Household",
     blurb: "Cleaning, paper and packaging for trade kitchens.",
     lines: 122,
-    image: "",
+    image: "https://images.unsplash.com/photo-1585421514738-0176e5dc2214?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -105,6 +116,17 @@ export const BRANDS = [
   "Marina Foods",
   "Sahara Dairy",
 ] as const;
+
+const CATEGORY_IMAGE: Record<CategorySlug, string> = {
+  "fresh-produce": IMAGES.freshProduce,
+  butchery: "https://images.unsplash.com/photo-1607623650997-625d2774f61e?auto=format&fit=crop&w=800&q=80",
+  "dairy-chill": "https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=800&q=80",
+  bakery: "https://images.unsplash.com/photo-1517433670267-08bbd425865f?auto=format&fit=crop&w=800&q=80",
+  "pantry-staples": IMAGES.spices,
+  "bulk-grains": IMAGES.wholesale,
+  beverages: "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=800&q=80",
+  household: "https://images.unsplash.com/photo-1585421514738-0176e5dc2214?auto=format&fit=crop&w=800&q=80",
+};
 
 const RAW: Array<
   [string, CategorySlug, (typeof BRANDS)[number], number, string, string, number, boolean]
@@ -176,7 +198,7 @@ export const PRODUCTS: Product[] = RAW.map(
       bulkOnly: price > 20,
       badge: discount ? "Deal" : i % 6 === 0 ? "Bestseller" : i % 11 === 0 ? "New" : undefined,
       discount,
-      image: "",
+      image: CATEGORY_IMAGE[category],
     };
   },
 );

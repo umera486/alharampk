@@ -72,7 +72,7 @@ export function DealOfTheDay() {
                   key={d}
                   onClick={() => scrollBy(d)}
                   aria-label={d === -1 ? "Previous deals" : "Next deals"}
-                  className="grid size-10 place-items-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10"
+                  className="grid size-10 place-items-center rounded-full border border-gold/30 text-white transition-colors hover:bg-gold/15 hover:gold-glow"
                 >
                   {d === -1 ? (
                     <ChevronLeft className="size-4" />
@@ -96,9 +96,9 @@ export function DealOfTheDay() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-              className="group w-[248px] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm sm:w-[300px]"
+              className="group glass-card w-[248px] shrink-0 snap-start overflow-hidden rounded-2xl sm:w-[300px]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-white/10">
+              <div className="relative aspect-[4/3] overflow-hidden bg-foreground/10">
                 <img
                   src={p.image}
                   alt={p.name}
@@ -110,7 +110,7 @@ export function DealOfTheDay() {
                 </span>
               </div>
               <div className="p-5">
-                <p className="text-[9px] font-bold tracking-[0.24em] text-white/50 uppercase">
+                <p className="text-[9px] font-bold tracking-[0.24em] text-gold/70 uppercase">
                   {p.brand}
                 </p>
                 <h3 className="font-display mt-1.5 truncate text-base font-extrabold text-white">
@@ -119,7 +119,7 @@ export function DealOfTheDay() {
                 <p className="mt-1 text-[11px] text-white/50">{p.caseSize}</p>
                 <div className="mt-4 flex items-end justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="font-display text-xl font-extrabold text-white">
+                    <p className="font-display text-xl font-extrabold text-gold-gradient">
                       {formatPrice(p.price * (1 - (p.discount ?? 0) / 100))}
                     </p>
                     <p className="text-[11px] text-white/40 line-through">{formatPrice(p.price)}</p>

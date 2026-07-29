@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { motion, useReducedMotion } from "motion/react";
 import { gsap } from "gsap";
 import { ArrowRight, Truck, Clock, ShieldCheck } from "lucide-react";
+import { IMAGES } from "@/lib/catalog";
 import { useGsap } from "./useGsap";
 
 const STATS = [
@@ -81,7 +82,7 @@ export function Hero() {
           initial={reduced ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="border-border/80 bg-card/70 inline-flex items-center gap-2.5 rounded-full border px-4 py-2 backdrop-blur-sm"
+          className="glass-panel inline-flex items-center gap-2.5 rounded-full px-4 py-2"
         >
           <span className="relative flex size-1.5">
             <span className="bg-emerald absolute inline-flex size-full animate-ping rounded-full opacity-60" />
@@ -132,7 +133,7 @@ export function Hero() {
               <Link
                 to="/shop"
 
-                className="border-border hover:border-emerald hover:bg-card inline-flex items-center justify-center gap-2 rounded-full border px-7 py-4 text-sm font-bold tracking-wide transition-all duration-500"
+                className="glass-panel hover:gold-glow inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-bold tracking-wide transition-all duration-500"
               >
                 Open a trade account
               </Link>
@@ -163,19 +164,19 @@ export function Hero() {
             transition={{ duration: 1.2, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="shadow-emerald-lg grain relative aspect-[4/3] overflow-hidden rounded-3xl sm:aspect-[16/11]">
+            <div className="shadow-emerald-lg grain glass-card relative aspect-[4/3] overflow-hidden rounded-3xl sm:aspect-[16/11]">
               <img
                 data-parallax="image"
-                src=""
+                src={IMAGES.hero}
                 alt="Al-Haram Wholesale & Cash Carry trading floor"
-                className="bg-secondary size-full scale-[1.2] object-cover"
+                className="size-full scale-[1.2] object-cover"
               />
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(200deg, transparent 40%, color-mix(in oklab, var(--emerald-deep) 42%, transparent))",
+                    "linear-gradient(200deg, transparent 40%, color-mix(in oklab, oklch(0.2 0.09 27) 72%, transparent))",
                 }}
               />
               <span aria-hidden="true" className="gold-rule absolute inset-x-0 top-0 h-[3px]" />
@@ -193,7 +194,7 @@ export function Hero() {
 
             <div
               data-parallax="card"
-              className="bg-card border-border shadow-elevated mt-4 rounded-2xl border p-5 sm:absolute sm:-bottom-10 sm:-left-6 sm:mt-0 sm:w-[300px] sm:p-6 lg:-left-16"
+              className="glass-panel shadow-elevated mt-4 rounded-2xl p-5 sm:absolute sm:-bottom-10 sm:-left-6 sm:mt-0 sm:w-[300px] sm:p-6 lg:-left-16"
             >
               <p className="eyebrow">Delivery promise</p>
               <ul className="mt-4 space-y-3">

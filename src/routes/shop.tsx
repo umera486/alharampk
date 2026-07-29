@@ -46,7 +46,7 @@ function ShopPage() {
                   key={c.slug}
                   to="/category/$slug"
                   params={{ slug: c.slug }}
-                  className="border-border bg-card hover:border-emerald hover:text-emerald shrink-0 rounded-full border px-4 py-2 text-[12px] font-bold transition-colors"
+                  className="glass-panel hover:gold-glow shrink-0 rounded-full px-4 py-2 text-[12px] font-bold transition-all duration-400"
                 >
                   {c.name}
                 </Link>

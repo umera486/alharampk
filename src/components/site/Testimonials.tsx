@@ -38,18 +38,18 @@ export function Testimonials() {
       <RevealGroup className="mt-14 grid gap-5 md:grid-cols-3">
         {QUOTES.map((q) => (
           <RevealItem key={q.name}>
-            <figure className="border-border bg-card lift flex h-full flex-col justify-between rounded-[2px] border p-8">
+            <figure className="glass-card lift flex h-full flex-col justify-between rounded-2xl p-8">
               <Quote className="text-gold size-6" aria-hidden="true" />
               <blockquote className="font-display mt-8 text-[17px] leading-snug font-medium">
                 “{q.quote}”
               </blockquote>
-              <figcaption className="border-border mt-8 flex items-center gap-3 border-t pt-5">
-                <img
-                  src=""
-                  alt={q.name}
-                  loading="lazy"
-                  className="bg-secondary size-10 rounded-full object-cover"
-                />
+              <figcaption className="border-gold/20 mt-8 flex items-center gap-3 border-t pt-5">
+                <span
+                  className="surface-emerald font-display grid size-10 shrink-0 place-items-center rounded-full text-sm font-bold"
+                  aria-hidden="true"
+                >
+                  {q.name.charAt(0)}
+                </span>
                 <span>
                   <span className="block text-[13px] font-semibold">{q.name}</span>
                   <span className="text-muted-foreground block text-[11px] tracking-[0.14em] uppercase">

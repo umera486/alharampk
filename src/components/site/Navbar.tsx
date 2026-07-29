@@ -63,13 +63,13 @@ export function Navbar() {
             </div>
             <button
               aria-label="Search the catalogue"
-              className="hover:bg-card grid size-10 place-items-center rounded-full transition-colors"
+              className="glass-panel hover:gold-glow grid size-10 place-items-center rounded-full transition-all duration-400"
             >
               <Search className="size-4" />
             </button>
             <button
               aria-label="Basket"
-              className="hover:bg-card relative grid size-10 place-items-center rounded-full transition-colors"
+              className="glass-panel hover:gold-glow relative grid size-10 place-items-center rounded-full transition-all duration-400"
             >
               <ShoppingBag className="size-4" />
               <span className="surface-emerald absolute top-1.5 right-1.5 grid size-4 place-items-center rounded-full text-[9px] font-bold">
@@ -79,7 +79,7 @@ export function Navbar() {
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="hover:bg-card grid size-10 place-items-center rounded-full transition-colors lg:hidden"
+              className="glass-panel hover:gold-glow grid size-10 place-items-center rounded-full transition-all duration-400 lg:hidden"
             >
               <Menu className="size-4" />
             </button>
@@ -101,14 +101,14 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-card absolute inset-y-0 right-0 flex w-[86vw] max-w-sm flex-col overflow-y-auto p-6"
+              className="glass-panel absolute inset-y-0 right-0 flex w-[86vw] max-w-sm flex-col overflow-y-auto p-6"
             >
               <div className="flex items-center justify-between">
                 <span className="font-display text-lg font-extrabold">Menu</span>
                 <button
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
-                  className="hover:bg-secondary grid size-9 place-items-center rounded-full"
+                  className="glass-panel hover:gold-glow grid size-9 place-items-center rounded-full transition-all duration-400"
                 >
                   <X className="size-4" />
                 </button>

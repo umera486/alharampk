@@ -15,7 +15,7 @@ export function DeliveryCTA() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="border-border shadow-ember relative overflow-hidden rounded-[2px] border px-8 py-16 text-center md:px-16 md:py-24"
+        className="glass-panel shadow-elevated relative overflow-hidden rounded-3xl px-8 py-16 text-center md:px-16 md:py-24"
       >
         <span aria-hidden="true" className="absolute inset-x-0 top-0 crimson-rule" />
         <div
@@ -51,7 +51,7 @@ export function DeliveryCTA() {
               setSubmitted(false);
             }}
             placeholder="Postcode or street address"
-            className="border-border bg-card focus:border-gold h-14 flex-1 rounded-full border px-6 text-sm outline-none transition-colors duration-400"
+            className="glass-panel focus:gold-glow h-14 flex-1 rounded-full px-6 text-sm outline-none transition-all duration-400"
           />
           <button
             type="submit"

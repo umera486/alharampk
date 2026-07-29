@@ -144,7 +144,7 @@ export function FilterSidebar(props: {
   lockCategory?: boolean;
 }) {
   return (
-    <aside className="bg-card border-border sticky top-28 hidden h-fit rounded-2xl border p-6 lg:block">
+    <aside className="glass-panel sticky top-28 hidden h-fit rounded-2xl p-6 lg:block">
       <FilterPanel {...props} />
     </aside>
   );
@@ -157,10 +157,10 @@ export function MobileFilters(props: {
 }) {
   return (
     <Sheet>
-      <SheetTrigger className="border-border bg-card inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-[12px] font-bold lg:hidden">
+      <SheetTrigger className="glass-panel hover:gold-glow inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-[12px] font-bold transition-all duration-400 lg:hidden">
         <SlidersHorizontal className="size-3.5" /> Filters
       </SheetTrigger>
-      <SheetContent side="left" className="w-[86vw] overflow-y-auto p-6 sm:max-w-sm">
+      <SheetContent side="left" className="glass-panel w-[86vw] overflow-y-auto p-6 sm:max-w-sm">
         <p className="font-display mb-5 text-xl font-extrabold">Refine</p>
         <FilterPanel {...props} />
       </SheetContent>
@@ -187,7 +187,7 @@ export function SortBar({
           value={filters.sort}
           onChange={(e) => setFilters({ sort: e.target.value })}
           aria-label="Sort products"
-          className="border-border bg-card rounded-full border px-3.5 py-2 text-[12px] font-semibold outline-none"
+          className="glass-panel rounded-full px-3.5 py-2 text-[12px] font-semibold outline-none"
         >
           {SORTS.map((s) => (
             <option key={s.value} value={s.value}>
@@ -195,7 +195,7 @@ export function SortBar({
             </option>
           ))}
         </select>
-        <div className="border-border bg-card flex shrink-0 rounded-full border p-1">
+        <div className="glass-panel flex shrink-0 rounded-full p-1">
           {(["grid", "list"] as const).map((v) => {
             const Icon = v === "grid" ? LayoutGrid : Rows3;
             const active = filters.view === v;
@@ -248,7 +248,7 @@ export function ActiveChips({
         <button
           key={c.label}
           onClick={c.clear}
-          className="border-emerald/40 text-emerald inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-bold"
+          className="glass-panel text-gold hover:gold-glow inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-bold transition-all duration-400"
         >
           {c.label}
           <X className="size-3" />

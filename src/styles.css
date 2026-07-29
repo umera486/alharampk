@@ -65,60 +65,65 @@
 :root {
   --radius: 0.25rem;
 
-  /* #EBEBEB premium light canvas */
-  --background: oklch(0.9276 0 0);
-  --foreground: oklch(0.155 0.006 160);
+  /* Deep Dark Royal Red canvas */
+  --background: oklch(0.205 0.095 27);
+  --foreground: oklch(0.97 0.012 90);
 
-  --card: oklch(0.995 0.001 120);
-  --card-foreground: oklch(0.155 0.006 160);
-  --popover: oklch(0.995 0.001 120);
-  --popover-foreground: oklch(0.155 0.006 160);
+  /* Translucent glass cards floating on the red canvas */
+  --card: oklch(0.3 0.06 27 / 0.45);
+  --card-foreground: oklch(0.97 0.012 90);
+  --popover: oklch(0.26 0.07 27 / 0.92);
+  --popover-foreground: oklch(0.97 0.012 90);
 
-  --primary: oklch(0.155 0.006 160);
-  --primary-foreground: oklch(0.985 0.002 120);
+  /* Royal Gold is the primary action color */
+  --primary: oklch(0.8 0.13 85);
+  --primary-foreground: oklch(0.16 0.03 27);
 
-  --secondary: oklch(0.885 0.004 150);
-  --secondary-foreground: oklch(0.2 0.006 160);
+  --secondary: oklch(0.32 0.07 27 / 0.55);
+  --secondary-foreground: oklch(0.96 0.01 90);
 
-  --muted: oklch(0.885 0.004 150);
-  --muted-foreground: oklch(0.475 0.01 160);
+  --muted: oklch(0.32 0.06 27 / 0.5);
+  --muted-foreground: oklch(0.74 0.035 80);
 
-  --accent: oklch(0.9 0.02 160);
-  --accent-foreground: oklch(0.2 0.006 160);
+  --accent: oklch(0.4 0.1 27 / 0.6);
+  --accent-foreground: oklch(0.97 0.01 90);
 
-  --emerald: oklch(0.56 0.135 162);
-  --emerald-deep: oklch(0.38 0.1 164);
-  --emerald-glow: oklch(0.74 0.14 160);
-  --emerald-foreground: oklch(0.985 0.002 120);
+  /* Royal Gold ramp — also aliased onto the emerald tokens so every existing
+     surface-emerald button / text-emerald-gradient accent becomes gold. */
+  --emerald: oklch(0.8 0.13 85);
+  --emerald-deep: oklch(0.62 0.12 75);
+  --emerald-glow: oklch(0.9 0.09 90);
+  --emerald-foreground: oklch(0.16 0.03 27);
   --ember: var(--emerald);
   --ember-deep: var(--emerald-deep);
 
-  --gold: oklch(0.79 0.115 88);
-  --gold-soft: oklch(0.92 0.055 94);
-  --gold-deep: oklch(0.63 0.1 80);
-  --gold-foreground: oklch(0.16 0.02 70);
+  --gold: oklch(0.8 0.13 85);
+  --gold-soft: oklch(0.9 0.09 90);
+  --gold-deep: oklch(0.62 0.12 75);
+  --gold-foreground: oklch(0.16 0.03 27);
 
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: oklch(0.62 0.24 25);
   --destructive-foreground: oklch(0.99 0.001 100);
 
-  --border: oklch(0.855 0.004 150);
-  --input: oklch(0.855 0.004 150);
-  --ring: oklch(0.56 0.135 162);
+  /* Faint gold hairlines for the glass borders */
+  --border: color-mix(in oklab, var(--gold) 18%, transparent);
+  --input: color-mix(in oklab, var(--gold) 24%, transparent);
+  --ring: var(--gold);
 
-  --chart-1: oklch(0.56 0.135 162);
-  --chart-2: oklch(0.79 0.115 88);
-  --chart-3: oklch(0.155 0.006 160);
-  --chart-4: oklch(0.74 0.14 160);
-  --chart-5: oklch(0.475 0.01 160);
+  --chart-1: oklch(0.8 0.13 85);
+  --chart-2: oklch(0.62 0.12 75);
+  --chart-3: oklch(0.9 0.09 90);
+  --chart-4: oklch(0.55 0.2 27);
+  --chart-5: oklch(0.74 0.035 80);
 
-  --sidebar: oklch(0.985 0.002 120);
-  --sidebar-foreground: oklch(0.155 0.006 160);
-  --sidebar-primary: oklch(0.56 0.135 162);
-  --sidebar-primary-foreground: oklch(0.985 0.002 120);
-  --sidebar-accent: oklch(0.9 0.02 160);
-  --sidebar-accent-foreground: oklch(0.2 0.006 160);
-  --sidebar-border: oklch(0.855 0.004 150);
-  --sidebar-ring: oklch(0.56 0.135 162);
+  --sidebar: oklch(0.24 0.08 27 / 0.7);
+  --sidebar-foreground: oklch(0.97 0.012 90);
+  --sidebar-primary: oklch(0.8 0.13 85);
+  --sidebar-primary-foreground: oklch(0.16 0.03 27);
+  --sidebar-accent: oklch(0.34 0.09 27 / 0.6);
+  --sidebar-accent-foreground: oklch(0.97 0.01 90);
+  --sidebar-border: color-mix(in oklab, var(--gold) 16%, transparent);
+  --sidebar-ring: var(--gold);
 
   /* Signature surfaces */
   --gradient-gold: linear-gradient(
@@ -130,58 +135,58 @@
   );
   --gradient-emerald: linear-gradient(
     100deg,
-    var(--emerald-glow) 0%,
-    var(--emerald) 38%,
-    var(--emerald-deep) 78%,
-    var(--emerald) 100%
+    var(--gold-soft) 0%,
+    var(--gold) 38%,
+    var(--gold-deep) 78%,
+    var(--gold) 100%
   );
   --gradient-crimson: var(--gradient-emerald);
-  --gradient-ember: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
-  --gradient-ink: linear-gradient(165deg, oklch(0.22 0.02 165) 0%, oklch(0.11 0.012 165) 100%);
+  --gradient-ember: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+  --gradient-ink: linear-gradient(165deg, oklch(0.28 0.08 27) 0%, oklch(0.15 0.09 27) 100%);
   --gradient-jade-wash: radial-gradient(
     120% 95% at 50% 0%,
-    color-mix(in oklab, var(--emerald) 26%, transparent) 0%,
-    color-mix(in oklab, var(--gold) 8%, transparent) 36%,
+    color-mix(in oklab, var(--gold) 16%, transparent) 0%,
+    color-mix(in oklab, var(--emerald-deep) 12%, transparent) 36%,
     transparent 70%
   );
   --gradient-ember-wash: var(--gradient-jade-wash);
 
-  --glass-bg: color-mix(in oklab, oklch(1 0 0) 62%, transparent);
-  --glass-border: color-mix(in oklab, var(--emerald) 28%, transparent);
+  --glass-bg: color-mix(in oklab, oklch(1 0 0) 8%, transparent);
+  --glass-border: color-mix(in oklab, var(--gold) 26%, transparent);
 
-  --shadow-emerald: 0 24px 70px -38px color-mix(in oklab, var(--emerald) 70%, transparent);
-  --shadow-emerald-lg: 0 50px 130px -55px color-mix(in oklab, var(--emerald-deep) 78%, transparent);
+  --shadow-emerald: 0 24px 70px -38px color-mix(in oklab, var(--gold) 70%, transparent);
+  --shadow-emerald-lg: 0 50px 130px -55px color-mix(in oklab, var(--gold-deep) 78%, transparent);
   --shadow-ember: var(--shadow-emerald);
   --shadow-ember-lg: var(--shadow-emerald-lg);
   --shadow-gold: 0 22px 60px -34px color-mix(in oklab, var(--gold-deep) 70%, transparent);
   --shadow-elevated:
-    0 1px 2px oklch(0 0 0 / 0.05), 0 24px 60px -34px oklch(0 0 0 / 0.28),
-    0 40px 100px -60px color-mix(in oklab, var(--emerald) 38%, transparent);
+    0 1px 2px oklch(0 0 0 / 0.4), 0 24px 60px -34px oklch(0 0 0 / 0.5),
+    0 40px 100px -60px color-mix(in oklab, var(--gold) 30%, transparent);
 
   --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dark {
-  --background: oklch(0.14 0.01 165);
-  --foreground: oklch(0.98 0.002 120);
-  --card: oklch(0.185 0.012 165);
-  --card-foreground: oklch(0.98 0.002 120);
-  --popover: oklch(0.185 0.012 165);
-  --popover-foreground: oklch(0.98 0.002 120);
-  --primary: oklch(0.98 0.002 120);
-  --primary-foreground: oklch(0.14 0.01 165);
-  --secondary: oklch(0.24 0.014 165);
-  --secondary-foreground: oklch(0.98 0.002 120);
-  --muted: oklch(0.24 0.014 165);
-  --muted-foreground: oklch(0.72 0.012 160);
-  --accent: oklch(0.26 0.03 165);
-  --accent-foreground: oklch(0.98 0.002 120);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --glass-bg: color-mix(in oklab, oklch(0.2 0.014 165) 66%, transparent);
-  --sidebar: oklch(0.185 0.012 165);
-  --sidebar-foreground: oklch(0.98 0.002 120);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --background: oklch(0.185 0.09 27);
+  --foreground: oklch(0.97 0.012 90);
+  --card: oklch(0.28 0.06 27 / 0.5);
+  --card-foreground: oklch(0.97 0.012 90);
+  --popover: oklch(0.24 0.07 27 / 0.94);
+  --popover-foreground: oklch(0.97 0.012 90);
+  --primary: oklch(0.82 0.13 85);
+  --primary-foreground: oklch(0.16 0.03 27);
+  --secondary: oklch(0.3 0.07 27 / 0.6);
+  --secondary-foreground: oklch(0.96 0.01 90);
+  --muted: oklch(0.3 0.06 27 / 0.55);
+  --muted-foreground: oklch(0.72 0.035 80);
+  --accent: oklch(0.38 0.1 27 / 0.65);
+  --accent-foreground: oklch(0.97 0.01 90);
+  --border: color-mix(in oklab, var(--gold) 20%, transparent);
+  --input: color-mix(in oklab, var(--gold) 26%, transparent);
+  --glass-bg: color-mix(in oklab, oklch(1 0 0) 7%, transparent);
+  --sidebar: oklch(0.22 0.08 27 / 0.72);
+  --sidebar-foreground: oklch(0.97 0.012 90);
+  --sidebar-border: color-mix(in oklab, var(--gold) 18%, transparent);
 }
 
 @layer base {
@@ -196,6 +201,10 @@
 
   body {
     background-color: var(--color-background);
+    background-image:
+      radial-gradient(70% 50% at 50% -8%, color-mix(in oklab, var(--gold) 14%, transparent), transparent 60%),
+      radial-gradient(60% 50% at 85% 8%, color-mix(in oklab, var(--emerald-deep) 20%, transparent), transparent 55%);
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
@@ -211,8 +220,24 @@
   }
 
   ::selection {
-    background: var(--emerald);
-    color: oklch(0.99 0.001 100);
+    background: var(--gold);
+    color: oklch(0.16 0.03 27);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.18 0.08 27);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--gold) 45%, transparent);
+    border-radius: 999px;
+    border: 2px solid oklch(0.18 0.08 27);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklab, var(--gold) 70%, transparent);
   }
 }
 
@@ -242,12 +267,12 @@
 
 @utility surface-emerald {
   background-image: var(--gradient-emerald);
-  color: oklch(0.99 0.001 100);
+  color: var(--emerald-foreground);
 }
 
 @utility surface-crimson {
   background-image: var(--gradient-emerald);
-  color: oklch(0.99 0.001 100);
+  color: var(--emerald-foreground);
 }
 
 @utility emerald-rule {
@@ -291,6 +316,21 @@
   background: var(--glass-bg);
   backdrop-filter: blur(22px) saturate(160%);
   border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, oklch(1 0 0) 12%, transparent);
+}
+
+@utility glass-card {
+  backdrop-filter: blur(18px) saturate(150%);
+  border-color: color-mix(in oklab, var(--gold) 22%, transparent);
+  box-shadow:
+    0 10px 40px -18px color-mix(in oklab, var(--gold) 32%, transparent),
+    inset 0 1px 0 color-mix(in oklab, oklch(1 0 0) 10%, transparent);
+}
+
+@utility gold-glow {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--gold) 32%, transparent),
+    0 0 34px -6px color-mix(in oklab, var(--gold) 48%, transparent);
 }
 
 @utility shadow-emerald {

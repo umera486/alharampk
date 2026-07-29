@@ -41,9 +41,9 @@ export function ProductCard({ product }: { product: Product }) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="group bg-card border-border lift relative flex flex-col overflow-hidden rounded-2xl border"
+      className="group glass-card lift relative flex flex-col overflow-hidden rounded-2xl"
     >
-      <div className="bg-secondary relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden bg-foreground/10">
         <img
           src={product.image}
           alt={product.name}
@@ -52,7 +52,7 @@ export function ProductCard({ product }: { product: Product }) {
         />
         <Badge product={product} />
         {!product.inStock && (
-          <span className="bg-foreground/80 text-background absolute inset-x-0 bottom-0 py-1.5 text-center text-[10px] font-bold tracking-[0.2em] uppercase">
+          <span className="glass-panel text-foreground absolute inset-x-0 bottom-0 py-1.5 text-center text-[10px] font-bold tracking-[0.2em] uppercase">
             Out of stock
           </span>
         )}
@@ -92,9 +92,9 @@ export function ProductRow({ product }: { product: Product }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="group bg-card border-border grid grid-cols-[92px_minmax(0,1fr)] items-center gap-4 overflow-hidden rounded-2xl border p-3 sm:grid-cols-[132px_minmax(0,1fr)_auto] sm:gap-6 sm:p-4"
+      className="group glass-card grid grid-cols-[92px_minmax(0,1fr)] items-center gap-4 overflow-hidden rounded-2xl p-3 sm:grid-cols-[132px_minmax(0,1fr)_auto] sm:gap-6 sm:p-4"
     >
-      <div className="bg-secondary relative aspect-square shrink-0 overflow-hidden rounded-xl">
+      <div className="relative aspect-square shrink-0 overflow-hidden rounded-xl bg-foreground/10">
         <img
           src={product.image}
           alt={product.name}
@@ -141,24 +141,24 @@ export function ProductRow({ product }: { product: Product }) {
 export function ProductSkeleton({ list = false }: { list?: boolean }) {
   if (list) {
     return (
-      <div className="bg-card border-border grid grid-cols-[92px_minmax(0,1fr)] gap-4 rounded-2xl border p-3 sm:grid-cols-[132px_minmax(0,1fr)] sm:p-4">
-        <div className="bg-secondary aspect-square animate-pulse rounded-xl" />
+      <div className="glass-card grid grid-cols-[92px_minmax(0,1fr)] gap-4 rounded-2xl p-3 sm:grid-cols-[132px_minmax(0,1fr)] sm:p-4">
+        <div className="aspect-square animate-pulse rounded-xl bg-foreground/10" />
         <div className="min-w-0 space-y-2.5 py-2">
-          <div className="bg-secondary h-2.5 w-24 animate-pulse rounded-full" />
-          <div className="bg-secondary h-4 w-2/3 animate-pulse rounded-full" />
-          <div className="bg-secondary h-2.5 w-1/3 animate-pulse rounded-full" />
+          <div className="h-2.5 w-24 animate-pulse rounded-full bg-foreground/15" />
+          <div className="h-4 w-2/3 animate-pulse rounded-full bg-foreground/15" />
+          <div className="h-2.5 w-1/3 animate-pulse rounded-full bg-foreground/15" />
         </div>
       </div>
     );
   }
   return (
-    <div className="bg-card border-border overflow-hidden rounded-2xl border">
-      <div className="bg-secondary aspect-[4/3] animate-pulse" />
+    <div className="glass-card overflow-hidden rounded-2xl">
+      <div className="aspect-[4/3] animate-pulse bg-foreground/10" />
       <div className="space-y-2.5 p-4">
-        <div className="bg-secondary h-2.5 w-20 animate-pulse rounded-full" />
-        <div className="bg-secondary h-4 w-3/4 animate-pulse rounded-full" />
-        <div className="bg-secondary h-2.5 w-1/2 animate-pulse rounded-full" />
-        <div className="bg-secondary mt-4 h-6 w-1/3 animate-pulse rounded-full" />
+        <div className="h-2.5 w-20 animate-pulse rounded-full bg-foreground/15" />
+        <div className="h-4 w-3/4 animate-pulse rounded-full bg-foreground/15" />
+        <div className="h-2.5 w-1/2 animate-pulse rounded-full bg-foreground/15" />
+        <div className="mt-4 h-6 w-1/3 animate-pulse rounded-full bg-foreground/15" />
       </div>
     </div>
   );
@@ -169,7 +169,7 @@ export function CategoryPill({ slug, name }: { slug: string; name: string }) {
     <Link
       to="/category/$slug"
       params={{ slug }}
-      className="border-border hover:border-emerald hover:text-emerald rounded-full border px-4 py-2 text-[12px] font-semibold transition-colors"
+      className="glass-panel hover:gold-glow rounded-full px-4 py-2 text-[12px] font-semibold transition-all duration-400"
     >
       {name}
     </Link>

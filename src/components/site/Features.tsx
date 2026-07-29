@@ -37,10 +37,10 @@ export function Features() {
         </h2>
       </Reveal>
 
-      <RevealGroup className="border-border mt-16 grid gap-px border md:grid-cols-2 lg:grid-cols-4">
+      <RevealGroup className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {FEATURES.map(({ icon: Icon, title, body }) => (
           <RevealItem key={title}>
-            <div className="bg-card outline-border group relative h-full p-8 outline transition-colors duration-500 lg:p-9">
+            <div className="glass-card group relative h-full p-8 transition-all duration-500 lg:p-9 hover:gold-glow">
               <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-[image:var(--gradient-gold)] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
               <Icon className="text-gold size-6" aria-hidden="true" />
               <h3 className="font-display mt-8 text-lg leading-snug font-semibold">{title}</h3>
