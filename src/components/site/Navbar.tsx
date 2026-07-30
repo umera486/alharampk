@@ -3,21 +3,18 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, Search, ShoppingBag, X, LogIn, LogOut, User } from "lucide-react";
+import { Menu, Search, ShoppingBag, X } from "lucide-react";
 import { CATEGORIES } from "@/lib/catalog";
-import { AlhLogo } from "./AlhLogo";
-import { useAuth } from "@/lib/auth-context";
 
 const NAV = [
   { label: "Shop", to: "/shop" as const },
+  { label: "Departments", to: "/shop" as const },
   { label: "Bulk & B2B", to: "/shop" as const },
-  { label: "Our Story", to: "/our-story" as const },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -39,7 +36,9 @@ export function Navbar() {
       >
         <nav className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 sm:px-6">
           <Link to="/" className="flex min-w-0 items-center gap-3">
-            <AlhLogo className="size-9 shrink-0 text-gold" variant="mark" />
+            <span className="surface-emerald font-display grid size-9 shrink-0 place-items-center rounded-xl text-sm font-extrabold">
+              AH
+            </span>
             <span className="min-w-0">
               <span className="font-display block truncate text-[15px] leading-none font-extrabold tracking-tight">
                 Al-Haram
@@ -77,25 +76,6 @@ export function Navbar() {
                 3
               </span>
             </button>
-
-            {user ? (
-              <button
-                onClick={signOut}
-                aria-label="Sign out"
-                className="glass-panel hover:gold-glow grid size-10 place-items-center rounded-full transition-all duration-400"
-              >
-                <LogOut className="size-4" />
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                aria-label="Sign in"
-                className="glass-panel hover:gold-glow grid size-10 place-items-center rounded-full transition-all duration-400"
-              >
-                <LogIn className="size-4" />
-              </Link>
-            )}
-
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
@@ -160,34 +140,6 @@ export function Navbar() {
                     {c.name}
                   </Link>
                 ))}
-              </div>
-
-              <div className="mt-10 border-t border-gold/15 pt-6">
-                {user ? (
-                  <button
-                    onClick={() => { signOut(); setOpen(false); }}
-                    className="glass-panel hover:gold-glow flex w-full items-center gap-2 rounded-full px-4 py-3 text-[13px] font-bold transition-all"
-                  >
-                    <LogOut className="size-4" /> Sign out
-                  </button>
-                ) : (
-                  <div className="flex gap-3">
-                    <Link
-                      to="/login"
-                      onClick={() => setOpen(false)}
-                      className="glass-panel hover:gold-glow flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-[13px] font-bold transition-all"
-                    >
-                      <LogIn className="size-4" /> Sign in
-                    </Link>
-                    <Link
-                      to="/register"
-                      onClick={() => setOpen(false)}
-                      className="surface-emerald flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-[13px] font-bold transition-all"
-                    >
-                      <User className="size-4" /> Register
-                    </Link>
-                  </div>
-                )}
               </div>
             </motion.div>
           </motion.div>

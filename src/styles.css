@@ -34,10 +34,6 @@
   --color-gold-soft: var(--gold-soft);
   --color-gold-deep: var(--gold-deep);
   --color-gold-foreground: var(--gold-foreground);
-  --color-cream: var(--cream);
-  --color-crimson: var(--crimson);
-  --color-crimson-deep: var(--crimson-deep);
-  --color-crimson-soft: var(--crimson-soft);
   --color-emerald: var(--emerald);
   --color-emerald-deep: var(--emerald-deep);
   --color-emerald-glow: var(--emerald-glow);
@@ -106,14 +102,6 @@
   --gold-deep: oklch(0.62 0.12 75);
   --gold-foreground: oklch(0.16 0.03 27);
 
-  /* Warm cream / off-white for light sections */
-  --cream: oklch(0.985 0.006 75);
-
-  /* Crimson ramp for accent sections and buttons */
-  --crimson: oklch(0.45 0.18 27);
-  --crimson-deep: oklch(0.32 0.15 27);
-  --crimson-soft: oklch(0.92 0.04 27);
-
   --destructive: oklch(0.62 0.24 25);
   --destructive-foreground: oklch(0.99 0.001 100);
 
@@ -168,8 +156,6 @@
 
   --shadow-emerald: 0 24px 70px -38px color-mix(in oklab, var(--gold) 70%, transparent);
   --shadow-emerald-lg: 0 50px 130px -55px color-mix(in oklab, var(--gold-deep) 78%, transparent);
-  --shadow-crimson: 0 24px 70px -38px color-mix(in oklab, var(--crimson) 60%, transparent);
-  --shadow-crimson-lg: 0 50px 130px -55px color-mix(in oklab, var(--crimson-deep) 68%, transparent);
   --shadow-ember: var(--shadow-emerald);
   --shadow-ember-lg: var(--shadow-emerald-lg);
   --shadow-gold: 0 22px 60px -34px color-mix(in oklab, var(--gold-deep) 70%, transparent);
@@ -316,19 +302,6 @@
 @utility surface-ink {
   background-image: var(--gradient-ink);
   color: oklch(0.985 0.002 120);
-}
-
-@utility surface-crimson {
-  background-image: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-deep) 100%);
-  color: oklch(0.98 0.002 90);
-}
-
-@utility shadow-crimson {
-  box-shadow: var(--shadow-crimson);
-}
-
-@utility shadow-crimson-lg {
-  box-shadow: var(--shadow-crimson-lg);
 }
 
 @utility surface-jade-wash {

@@ -1,42 +1,15 @@
 import { Link } from "@tanstack/react-router";
 
-type FooterLink = { label: string; to: string };
-
-const COLUMNS: { title: string; links: FooterLink[] }[] = [
-  {
-    title: "Shop",
-    links: [
-      { label: "Fresh Produce", to: "/shop" },
-      { label: "Butchery", to: "/shop" },
-      { label: "Bulk & Wholesale", to: "/shop" },
-      { label: "Household", to: "/shop" },
-      { label: "Offers", to: "/shop" },
-    ],
-  },
-  {
-    title: "Service",
-    links: [
-      { label: "5 km Delivery", to: "/" },
-      { label: "Trade Accounts", to: "/register" },
-      { label: "Click & Collect", to: "/" },
-      { label: "Returns", to: "/" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "Our Story", to: "/our-story" },
-      { label: "Careers", to: "/" },
-      { label: "Press", to: "/" },
-      { label: "Contact", to: "/" },
-    ],
-  },
+const COLUMNS = [
+  { title: "Shop", links: ["Fresh Produce", "Butchery", "Bulk & Wholesale", "Household", "Offers"] },
+  { title: "Service", links: ["5 km Delivery", "Trade Accounts", "Click & Collect", "Returns"] },
+  { title: "Company", links: ["Our Story", "Careers", "Press", "Contact"] },
 ];
 
 export function Footer() {
   return (
     <footer className="surface-ink">
-      <div className="mx-auto max-w-[1400px] px-5 py-20 sm:px-6">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 py-20">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <span className="font-display text-crimson-gradient text-3xl font-semibold tracking-[-0.02em]">ALHARAM</span>
@@ -58,12 +31,12 @@ export function Footer() {
                 </h3>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((l) => (
-                    <li key={l.label}>
+                    <li key={l}>
                       <Link
-                        to={l.to}
+                        to="/"
                         className="text-[14px] opacity-80 transition-opacity duration-300 hover:opacity-100"
                       >
-                        {l.label}
+                        {l}
                       </Link>
                     </li>
                   ))}
